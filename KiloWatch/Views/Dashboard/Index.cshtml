@@ -5,8 +5,8 @@
 
 <section class="dashboard">
 
+    <!-- Welcome Section -->
     <div class="dashboard-welcome">
-
         <div>
             <span class="dashboard-eyebrow">
                 YOUR ENERGY AT A GLANCE
@@ -25,21 +25,224 @@
             <strong>Household Account</strong>
             <small>Electricity Monitoring</small>
         </div>
-
     </div>
 
-    <div class="dashboard-placeholder">
-
-        <div class="placeholder-icon">⚡</div>
-
-        <h2>Your energy dashboard starts here.</h2>
-
+    <!-- Sample Data Notice -->
+    <div class="dashboard-notice">
+        <span>ⓘ</span>
         <p>
-            Monitor your electricity consumption,
-            track your estimated bills, and understand
-            your household energy usage.
+            You're viewing sample data for demonstration.
+            Actual consumption will appear once your account is connected.
         </p>
+    </div>
+
+    <!-- Statistics -->
+    <div class="dashboard-stats">
+
+        <article class="stat-card">
+            <div class="stat-card-top">
+                <span>Monthly Consumption</span>
+                <div class="stat-icon orange">⚡</div>
+            </div>
+
+            <h2>342.5 <small>kWh</small></h2>
+
+            <p class="stat-description">
+                <span class="stat-neutral">This month</span>
+                <span>Energy used</span>
+            </p>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-card-top">
+                <span>Estimated Bill</span>
+                <div class="stat-icon blue">₱</div>
+            </div>
+
+            <h2>₱4,110.00</h2>
+
+            <p class="stat-description">
+                <span class="stat-neutral">Current period</span>
+                <span>Estimated amount</span>
+            </p>
+        </article>
+
+        <article class="stat-card">
+            <div class="stat-card-top">
+                <span>Average Daily Usage</span>
+                <div class="stat-icon green">◷</div>
+            </div>
+
+            <h2>11.4 <small>kWh</small></h2>
+
+            <p class="stat-description">
+                <span class="stat-neutral">Daily average</span>
+                <span>Based on sample data</span>
+            </p>
+        </article>
 
     </div>
+
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-main-grid">
+
+        <!-- Weekly Consumption -->
+        <article class="kt-card consumption-card">
+
+            <div class="kt-card-header">
+                <div>
+                    <h2 class="kt-card-title">
+                        Electricity Consumption
+                    </h2>
+                    <p class="dashboard-card-subtitle">
+                        Your household's weekly energy usage
+                    </p>
+                </div>
+
+                <span class="kt-badge kt-badge-neutral">
+                    This week
+                </span>
+            </div>
+
+            <div class="consumption-summary">
+                <strong>78.6 kWh</strong>
+                <span>Total weekly usage</span>
+            </div>
+
+            <div class="chart-container">
+
+                <div class="chart-bars">
+                    <div class="chart-column">
+                        <span class="chart-value">9.2</span>
+                        <div class="chart-bar" style="height: 46%;"></div>
+                        <span class="chart-day">Mon</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <span class="chart-value">11.5</span>
+                        <div class="chart-bar" style="height: 58%;"></div>
+                        <span class="chart-day">Tue</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <span class="chart-value">10.1</span>
+                        <div class="chart-bar" style="height: 51%;"></div>
+                        <span class="chart-day">Wed</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <span class="chart-value">13.8</span>
+                        <div class="chart-bar" style="height: 69%;"></div>
+                        <span class="chart-day">Thu</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <span class="chart-value">12.4</span>
+                        <div class="chart-bar" style="height: 62%;"></div>
+                        <span class="chart-day">Fri</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <span class="chart-value">11.0</span>
+                        <div class="chart-bar" style="height: 55%;"></div>
+                        <span class="chart-day">Sat</span>
+                    </div>
+
+                    <div class="chart-column">
+                        <span class="chart-value">10.6</span>
+                        <div class="chart-bar" style="height: 53%;"></div>
+                        <span class="chart-day">Sun</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- Bill Overview -->
+        <article class="kt-card bill-card">
+
+            <div class="kt-card-header">
+                <div>
+                    <h2 class="kt-card-title">Bill Overview</h2>
+                    <p class="dashboard-card-subtitle">
+                        Current billing period
+                    </p>
+                </div>
+
+                <span class="kt-badge kt-badge-warning">
+                    Estimated
+                </span>
+            </div>
+
+            <div class="bill-amount">
+                <span>Estimated total bill</span>
+                <h2>₱4,110.00</h2>
+            </div>
+
+            <div class="bill-details">
+                <div>
+                    <span>Billing Period</span>
+                    <strong>Nov 01 – Nov 30</strong>
+                </div>
+
+                <div>
+                    <span>Energy Consumption</span>
+                    <strong>342.5 kWh</strong>
+                </div>
+
+                <div>
+                    <span>Average Rate</span>
+                    <strong>₱12.00 / kWh</strong>
+                </div>
+            </div>
+
+            <p class="bill-disclaimer">
+                This is an estimate, not an official electricity bill.
+            </p>
+
+        </article>
+
+    </div>
+
+    <!-- Energy Insights -->
+    <section class="dashboard-insights">
+
+        <div class="dashboard-section-heading">
+            <div>
+                <h2>Energy Insights</h2>
+                <p>Understand your household energy habits.</p>
+            </div>
+        </div>
+
+        <div class="dashboard-insight-grid">
+
+            <article class="kt-card insight-card">
+                <div class="insight-icon orange">⚡</div>
+
+                <div>
+                    <h3>Monitor Your Usage</h3>
+                    <p>
+                        Keep track of your daily electricity
+                        consumption to understand your energy habits.
+                    </p>
+                </div>
+            </article>
+
+            <article class="kt-card insight-card">
+                <div class="insight-icon green">♻</div>
+
+                <div>
+                    <h3>Save More Energy</h3>
+                    <p>
+                        Turn off unused appliances and avoid
+                        unnecessary electricity consumption.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
 
 </section>

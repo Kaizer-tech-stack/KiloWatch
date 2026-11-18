@@ -1,0 +1,480 @@
+/* =========================================
+   KILOWATCH DASHBOARD
+   Website Dashboard Styling
+========================================= */
+
+/* Main dashboard */
+.dashboard {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* Welcome section */
+.dashboard-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.dashboard-eyebrow {
+  display: inline-block;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+
+.dashboard-welcome h1 {
+  color: var(--color-navy);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.dashboard-welcome p {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.dashboard-date {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 17px 22px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dashboard-date span {
+  color: var(--color-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.dashboard-date strong {
+  color: var(--color-navy);
+  font-size: 14px;
+}
+
+.dashboard-date small {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+/* Sample data notice */
+.dashboard-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 16px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: var(--radius-md);
+  color: #9a3412;
+}
+
+.dashboard-notice > span {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.dashboard-notice p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Statistics */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  min-width: 0;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+.stat-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-card-top > span {
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-card h2 {
+  color: var(--color-navy);
+  font-size: clamp(23px, 2.5vw, 30px);
+  font-weight: 800;
+  margin: 22px 0 14px;
+  overflow-wrap: anywhere;
+}
+
+.stat-card h2 small {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stat-icon,
+.insight-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.orange {
+  background: #fff0e5;
+  color: #ea580c;
+}
+
+.blue {
+  background: #eaf2ff;
+  color: #2563eb;
+}
+
+.green {
+  background: #e8f8ef;
+  color: #16a34a;
+}
+
+.stat-description {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 11px;
+}
+
+.stat-neutral {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Main content grid */
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.consumption-card,
+.bill-card {
+  min-width: 0;
+  padding: 22px;
+}
+
+.kt-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.kt-card-title {
+  color: var(--color-navy);
+  font-size: 16px;
+  font-weight: 750;
+  margin: 0;
+}
+
+.dashboard .dashboard-card-subtitle {
+  color: var(--color-muted);
+  font-size: 12px;
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
+/* Consumption chart */
+.consumption-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 26px 0 22px;
+}
+
+.consumption-summary strong {
+  color: var(--color-navy);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.consumption-summary span {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.chart-container {
+  width: 100%;
+  min-width: 0;
+  padding-top: 10px;
+}
+
+.chart-bars {
+  height: 190px;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end;
+  gap: 12px;
+  border-bottom: 1px solid var(--color-border);
+  background-image: linear-gradient(
+    to bottom,
+    transparent 24%,
+    var(--color-border) 25%,
+    transparent 25.5%,
+    transparent 49%,
+    var(--color-border) 50%,
+    transparent 50.5%,
+    transparent 74%,
+    var(--color-border) 75%,
+    transparent 75.5%
+  );
+}
+
+.chart-column {
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.chart-value {
+  color: var(--color-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.chart-bar {
+  width: min(100%, 34px);
+  min-height: 8px;
+  background: #fdba74;
+  border-radius: 7px 7px 0 0;
+  transition: background 0.2s ease;
+}
+
+.chart-column:nth-child(4) .chart-bar,
+.chart-bar:hover {
+  background: var(--color-primary);
+}
+
+.chart-day {
+  color: var(--color-muted);
+  font-size: 11px;
+  padding-bottom: 10px;
+}
+
+/* Bill overview */
+.bill-amount {
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 25px 0 20px;
+}
+
+.bill-amount span {
+  color: #9a3412;
+  font-size: 12px;
+}
+
+.bill-amount h2 {
+  color: #c2410c;
+  font-size: 29px;
+  font-weight: 800;
+  margin: 8px 0 0;
+}
+
+.bill-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.bill-details > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bill-details span {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.bill-details strong {
+  color: var(--color-navy);
+  font-size: 12px;
+  text-align: right;
+}
+
+.bill-disclaimer {
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 16px 0 0;
+}
+
+/* Energy insights */
+.dashboard-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dashboard-section-heading h2 {
+  color: var(--color-navy);
+  font-size: 19px;
+  font-weight: 800;
+  margin: 0 0 5px;
+}
+
+.dashboard-section-heading p {
+  color: var(--color-muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+.dashboard-insight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.insight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+}
+
+.insight-card h3 {
+  color: var(--color-navy);
+  font-size: 14px;
+  font-weight: 750;
+  margin: 2px 0 7px;
+}
+
+.insight-card p {
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE WEBSITE LAYOUT
+========================================= */
+
+@media (max-width: 1100px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    gap: 20px;
+  }
+
+  .dashboard-welcome {
+    align-items: flex-start;
+  }
+
+  .dashboard-date {
+    width: 100%;
+  }
+
+  .dashboard-stats {
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 17px;
+  }
+
+  .consumption-card,
+  .bill-card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-insight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-welcome h1 {
+    font-size: 25px;
+  }
+
+  .dashboard-date {
+    min-width: 0;
+  }
+
+  .chart-bars {
+    gap: 5px;
+    height: 165px;
+  }
+
+  .chart-value {
+    font-size: 9px;
+  }
+
+  .chart-day {
+    font-size: 10px;
+  }
+
+  .bill-amount h2 {
+    font-size: 25px;
+  }
+}

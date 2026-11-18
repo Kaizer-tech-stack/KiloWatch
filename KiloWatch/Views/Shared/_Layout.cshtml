@@ -30,6 +30,10 @@
           asp-append-version="true" />
 
     <link rel="stylesheet"
+      href="~/css/dashboard.css"
+      asp-append-version="true" />
+
+    <link rel="stylesheet"
           href="~/KiloWatch.styles.css"
           asp-append-version="true" />
 </head>
@@ -42,7 +46,7 @@
         <aside class="kt-sidebar">
 
             <a class="kt-brand"
-               asp-controller="Home"
+               asp-controller="Dashboard"
                asp-action="Index">
 
                 <span class="kt-brand-icon">ϟ</span>
@@ -58,7 +62,7 @@
 
                 <nav class="kt-navigation">
 
-                    <a asp-controller="Home"
+                    <a asp-controller="Dashboard"
                        asp-action="Index"
                        class="kt-nav-link active">
                         <span class="kt-nav-icon">▦</span>
