@@ -1,0 +1,172 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - KiloWatch</title>
+
+    <script type="importmap"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet" />
+
+    <!-- KiloWatch Styles -->
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/components.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/KiloWatch.styles.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+
+    <div class="kt-app">
+
+        <!-- SIDEBAR -->
+        <aside class="kt-sidebar">
+
+            <a class="kt-brand"
+               asp-controller="Home"
+               asp-action="Index">
+
+                <span class="kt-brand-icon">ϟ</span>
+
+                <span class="kt-brand-name">
+                    Kilo<span>Watch</span>
+                </span>
+            </a>
+
+            <div class="kt-sidebar-section">
+
+                <span class="kt-sidebar-label">WORKSPACE</span>
+
+                <nav class="kt-navigation">
+
+                    <a asp-controller="Home"
+                       asp-action="Index"
+                       class="kt-nav-link active">
+                        <span class="kt-nav-icon">▦</span>
+                        <span>Overview</span>
+                    </a>
+
+                    <a href="#" class="kt-nav-link">
+                        <span class="kt-nav-icon">ϟ</span>
+                        <span>Real-Time Usage</span>
+                    </a>
+
+                    <a href="#" class="kt-nav-link">
+                        <span class="kt-nav-icon">▤</span>
+                        <span>Billing & Rates</span>
+                    </a>
+
+                    <a href="#" class="kt-nav-link">
+                        <span class="kt-nav-icon">⌂</span>
+                        <span>Appliance Audit</span>
+                    </a>
+
+                    <a href="#" class="kt-nav-link">
+                        <span class="kt-nav-icon">⚡</span>
+                        <span>Outage Advisories</span>
+                    </a>
+
+                    <a href="#" class="kt-nav-link">
+                        <span class="kt-nav-icon">☀</span>
+                        <span>Solar & Net Metering</span>
+                    </a>
+
+                </nav>
+            </div>
+
+            <!-- SIDEBAR HELP -->
+            <div class="kt-sidebar-bottom">
+
+                <div class="kt-sidebar-help">
+
+                    <span class="kt-help-icon">?</span>
+
+                    <div>
+                        <strong>Need assistance?</strong>
+                        <small>We're here to help.</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN APPLICATION -->
+        <div class="kt-main">
+
+            <!-- TOP NAVBAR -->
+            <header class="kt-topbar">
+
+                <div class="kt-topbar-left">
+                    <span class="kt-page-context">
+                        Energy Management
+                    </span>
+                </div>
+
+                <div class="kt-topbar-right">
+
+                    <button type="button"
+                            class="kt-icon-button"
+                            aria-label="Notifications">
+                        ♧
+                    </button>
+
+                    <div class="kt-user-profile">
+
+                        <div class="kt-avatar">U</div>
+
+                        <div class="kt-user-info">
+                            <strong>My Account</strong>
+                            <small>Household User</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- PAGE CONTENT -->
+            <main class="kt-content" role="main">
+                @RenderBody()
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="kt-footer">
+                <span>© 2026 KiloWatch</span>
+                <span>Smarter Energy. Better Living.</span>
+            </footer>
+
+        </div>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
