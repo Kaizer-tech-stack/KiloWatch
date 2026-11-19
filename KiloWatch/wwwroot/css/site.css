@@ -1,7 +1,7 @@
-/* =========================================
+/* 
    KILOWATCH — DESIGN SYSTEM
    Version 1.0
-========================================= */
+ */
 
 /* 1. DESIGN TOKENS */
 
@@ -184,9 +184,9 @@ textarea {
   outline-color: var(--color-primary);
 }
 
-/* =========================================
+/* 
    KILOWATCH — DASHBOARD
-========================================= */
+ */
 
 .dashboard {
   width: 100%;

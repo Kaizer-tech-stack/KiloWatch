@@ -1,0 +1,130 @@
+
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Login";
+}
+
+<section class="auth-page">
+
+    <!-- LEFT BRANDING PANEL -->
+    <div class="auth-brand-panel">
+
+        <a class="auth-brand" asp-controller="Home" asp-action="Index">
+            <span class="auth-brand-icon">ϟ</span>
+            <span>Kilo<span>Watch</span></span>
+        </a>
+
+        <div class="auth-brand-content">
+            <span class="auth-eyebrow">SMARTER ENERGY. BETTER LIVING.</span>
+
+            <h1>Take control of your energy.</h1>
+
+            <p>
+                Monitor your electricity consumption, understand your
+                energy habits, and make smarter decisions for your home.
+            </p>
+
+            <div class="auth-feature">
+                <span class="auth-feature-icon">⚡</span>
+                <div>
+                    <strong>Track your energy</strong>
+                    <small>Understand your household consumption.</small>
+                </div>
+            </div>
+
+            <div class="auth-feature">
+                <span class="auth-feature-icon">₱</span>
+                <div>
+                    <strong>Manage your expenses</strong>
+                    <small>Keep an eye on your estimated electricity bill.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-brand-footer">
+            © 2026 KiloWatch. All rights reserved.
+        </div>
+
+    </div>
+
+    <!-- RIGHT LOGIN PANEL -->
+    <div class="auth-form-panel">
+
+        <div class="auth-form-container">
+
+            <div class="auth-mobile-brand">
+                <span class="auth-brand-icon">ϟ</span>
+                <strong>Kilo<span>Watch</span></strong>
+            </div>
+
+            <div class="auth-heading">
+                <span class="auth-eyebrow">WELCOME BACK</span>
+                <h2>Sign in to your account</h2>
+                <p>Enter your details to access your energy dashboard.</p>
+            </div>
+
+            <form asp-controller="Account"
+                  asp-action="Login"
+                  method="post"
+                  class="auth-form">
+
+                <div class="auth-form-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="Email"
+                        placeholder="name@example.com"
+                        autocomplete="email"
+                        required />
+                </div>
+
+                <div class="auth-form-group">
+                    <div class="auth-label-row">
+                        <label for="password">Password</label>
+                        <a href="#" class="auth-text-link">Forgot password?</a>
+                    </div>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="Password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required />
+                </div>
+
+                <div class="auth-form-options">
+                    <label class="auth-checkbox">
+                        <input type="checkbox" name="RememberMe" value="true" />
+                        <span>Remember me</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-submit-button">
+                    Sign In
+                    <span>→</span>
+                </button>
+
+            </form>
+
+            <div class="auth-divider">
+                <span>NEW TO KILOWATCH?</span>
+            </div>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a asp-controller="Account" asp-action="Register">
+                    Create an account
+                </a>
+            </p>
+
+            <p class="auth-security-note">
+                Your household energy information deserves to stay secure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>

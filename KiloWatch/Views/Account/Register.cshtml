@@ -1,0 +1,152 @@
+
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Create Account";
+}
+
+<section class="auth-page">
+
+    <!-- BRAND PANEL -->
+    <div class="auth-brand-panel">
+
+        <a class="auth-brand" asp-controller="Home" asp-action="Index">
+            <span class="auth-brand-icon">ϟ</span>
+            <span>Kilo<span>Watch</span></span>
+        </a>
+
+        <div class="auth-brand-content">
+            <span class="auth-eyebrow">SMARTER ENERGY. BETTER LIVING.</span>
+
+            <h1>Make every watt count.</h1>
+
+            <p>
+                Start understanding your household energy consumption.
+                Create your account and take the first step toward smarter
+                energy management.
+            </p>
+
+            <div class="auth-feature">
+                <span class="auth-feature-icon">⚡</span>
+                <div>
+                    <strong>Monitor your usage</strong>
+                    <small>Keep track of your household electricity consumption.</small>
+                </div>
+            </div>
+
+            <div class="auth-feature">
+                <span class="auth-feature-icon">₱</span>
+                <div>
+                    <strong>Stay on top of your bills</strong>
+                    <small>Understand your estimated electricity expenses.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-brand-footer">
+            © 2026 KiloWatch. All rights reserved.
+        </div>
+
+    </div>
+
+    <!-- SIGN UP FORM -->
+    <div class="auth-form-panel">
+
+        <div class="auth-form-container">
+
+            <div class="auth-mobile-brand">
+                <span class="auth-brand-icon">ϟ</span>
+                <strong>Kilo<span>Watch</span></strong>
+            </div>
+
+            <div class="auth-heading">
+                <span class="auth-eyebrow">GET STARTED</span>
+                <h2>Create your account</h2>
+                <p>Fill in your details to get started with KiloWatch.</p>
+            </div>
+
+            <form asp-controller="Account" asp-action="Register"
+                  method="post" class="auth-form">
+
+                <div class="auth-form-group">
+                    <label for="fullName">Full name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="FullName"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required />
+                </div>
+
+                <div class="auth-form-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="Email"
+                        placeholder="name@example.com"
+                        autocomplete="email"
+                        required />
+                </div>
+
+                <div class="auth-form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="Password"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required />
+                    <small class="auth-security-note">
+                        Use at least 8 characters.
+                    </small>
+                </div>
+
+                <div class="auth-form-group">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="ConfirmPassword"
+                        placeholder="Re-enter your password"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required />
+                </div>
+
+                <div class="auth-form-options">
+                    <label class="auth-checkbox">
+                        <input type="checkbox" name="AgreeToTerms"
+                               value="true" required />
+                        <span>
+                            I agree to the Terms and Conditions and Privacy Policy.
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-submit-button">
+                    Create Account <span>→</span>
+                </button>
+
+            </form>
+
+            <div class="auth-divider">
+                <span>ALREADY A MEMBER?</span>
+            </div>
+
+            <p class="auth-switch">
+                Already have an account?
+                <a asp-controller="Account" asp-action="Login">Sign in</a>
+            </p>
+
+            <p class="auth-security-note">
+                Your household energy information deserves to stay secure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
