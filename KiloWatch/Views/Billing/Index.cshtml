@@ -1,0 +1,406 @@
+
+@{
+    ViewData["Title"] = "Billing & Rates";
+}
+
+<section class="billing-page">
+
+    <!-- PAGE HEADING -->
+    <div class="billing-heading">
+        <div>
+            <p class="billing-eyebrow">ENERGY MANAGEMENT</p>
+            <h1>Billing & Rates</h1>
+            <p class="billing-subtitle">
+                Review your electricity costs, understand your rates, and estimate future bills.
+            </p>
+        </div>
+
+        <span class="billing-period-badge">
+            <span class="billing-status-dot"></span>
+            Current Billing Period
+        </span>
+    </div>
+
+    <!-- DEMO NOTICE -->
+    <div class="billing-notice">
+        <span class="billing-notice-icon">i</span>
+        <p>
+            <strong>Sample billing information.</strong>
+            The amounts and electricity rates displayed are illustrative and are not official utility charges.
+        </p>
+    </div>
+
+    <!-- BILLING SUMMARY -->
+    <div class="billing-summary-grid">
+
+        <article class="billing-summary-card billing-total-card">
+            <div class="billing-summary-top">
+                <span>Estimated Current Bill</span>
+                <span class="billing-summary-icon">₱</span>
+            </div>
+
+            <h2>₱4,110.00</h2>
+
+            <div class="billing-summary-bottom">
+                <span>342.5 kWh consumed</span>
+                <span class="billing-trend">Current estimate</span>
+            </div>
+        </article>
+
+        <article class="billing-summary-card">
+            <div class="billing-summary-top">
+                <span>Average Rate</span>
+                <span class="billing-summary-icon">ϟ</span>
+            </div>
+
+            <h2>₱12.00 <small>/ kWh</small></h2>
+
+            <div class="billing-summary-bottom">
+                <span>Estimated blended rate</span>
+            </div>
+        </article>
+
+        <article class="billing-summary-card">
+            <div class="billing-summary-top">
+                <span>Billing Period</span>
+                <span class="billing-summary-icon">▦</span>
+            </div>
+
+            <h2 class="billing-date-value">Nov 01 – Nov 30</h2>
+
+            <div class="billing-summary-bottom">
+                <span>November 2026</span>
+            </div>
+        </article>
+
+        <article class="billing-summary-card">
+            <div class="billing-summary-top">
+                <span>Payment Due Date</span>
+                <span class="billing-summary-icon">◷</span>
+            </div>
+
+            <h2 class="billing-date-value">Dec 10, 2026</h2>
+
+            <div class="billing-summary-bottom">
+                <span class="billing-payment-status">Upcoming</span>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- MAIN BILLING CONTENT -->
+    <div class="billing-main-grid">
+
+        <!-- RATE BREAKDOWN -->
+        <section class="kt-card billing-rates-card">
+
+            <div class="billing-section-header">
+                <div>
+                    <h2>Electricity Rate Breakdown</h2>
+                    <p>Understand how your estimated electricity charges are distributed.</p>
+                </div>
+
+                <span class="billing-unit-label">PER kWh</span>
+            </div>
+
+            <div class="billing-rate-list">
+
+                <div class="billing-rate-row">
+                    <div class="billing-rate-info">
+                        <span class="billing-rate-indicator rate-generation"></span>
+                        <div>
+                            <strong>Generation Charge</strong>
+                            <span>Cost of electricity production</span>
+                        </div>
+                    </div>
+                    <strong class="billing-rate-value">₱6.20</strong>
+                </div>
+
+                <div class="billing-rate-row">
+                    <div class="billing-rate-info">
+                        <span class="billing-rate-indicator rate-transmission"></span>
+                        <div>
+                            <strong>Transmission Charge</strong>
+                            <span>Electricity delivery through the grid</span>
+                        </div>
+                    </div>
+                    <strong class="billing-rate-value">₱1.15</strong>
+                </div>
+
+                <div class="billing-rate-row">
+                    <div class="billing-rate-info">
+                        <span class="billing-rate-indicator rate-distribution"></span>
+                        <div>
+                            <strong>Distribution Charge</strong>
+                            <span>Local electricity distribution services</span>
+                        </div>
+                    </div>
+                    <strong class="billing-rate-value">₱1.45</strong>
+                </div>
+
+                <div class="billing-rate-row">
+                    <div class="billing-rate-info">
+                        <span class="billing-rate-indicator rate-system"></span>
+                        <div>
+                            <strong>System Loss</strong>
+                            <span>Allowable system energy losses</span>
+                        </div>
+                    </div>
+                    <strong class="billing-rate-value">₱0.55</strong>
+                </div>
+
+                <div class="billing-rate-row">
+                    <div class="billing-rate-info">
+                        <span class="billing-rate-indicator rate-taxes"></span>
+                        <div>
+                            <strong>Taxes & Other Charges</strong>
+                            <span>Illustrative taxes and adjustments</span>
+                        </div>
+                    </div>
+                    <strong class="billing-rate-value">₱2.65</strong>
+                </div>
+
+            </div>
+
+            <div class="billing-rate-total">
+                <div>
+                    <span>Total Estimated Rate</span>
+                    <small>Combined illustrative charges</small>
+                </div>
+                <strong>₱12.00 <small>/ kWh</small></strong>
+            </div>
+
+            <p class="billing-disclaimer">
+                Actual electricity rates vary by distribution utility, billing month,
+                consumption, and applicable adjustments.
+            </p>
+
+        </section>
+
+        <!-- BILLING INFORMATION -->
+        <section class="kt-card billing-info-card">
+
+            <div class="billing-section-header">
+                <div>
+                    <h2>Current Bill Details</h2>
+                    <p>November 2026 billing summary</p>
+                </div>
+            </div>
+
+            <div class="billing-info-highlight">
+                <span>Estimated Amount</span>
+                <strong>₱4,110.00</strong>
+                <small>Based on current recorded consumption</small>
+            </div>
+
+            <div class="billing-detail-list">
+
+                <div>
+                    <span>Previous Balance</span>
+                    <strong>₱0.00</strong>
+                </div>
+
+                <div>
+                    <span>Current Consumption</span>
+                    <strong>342.5 kWh</strong>
+                </div>
+
+                <div>
+                    <span>Average Rate</span>
+                    <strong>₱12.00 / kWh</strong>
+                </div>
+
+                <div>
+                    <span>Billing Status</span>
+                    <span class="billing-status-upcoming">Upcoming</span>
+                </div>
+
+            </div>
+
+            <div class="billing-due-panel">
+                <div>
+                    <span>Payment Due Date</span>
+                    <strong>December 10, 2026</strong>
+                </div>
+                <span class="billing-calendar-icon">▦</span>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- BILL ESTIMATOR -->
+    <section class="kt-card billing-calculator-card">
+
+        <div class="billing-section-header">
+            <div>
+                <h2>Electricity Bill Estimator</h2>
+                <p>Calculate an estimated electricity bill using your consumption.</p>
+            </div>
+
+            <span class="billing-calculator-label">QUICK CALCULATOR</span>
+        </div>
+
+        <div class="billing-calculator-content">
+
+            <div class="billing-calculator-inputs">
+
+                <div class="billing-input-group">
+                    <label for="billingUsage">Electricity Consumption</label>
+                    <div class="billing-input-wrapper">
+                        <input
+                            type="number"
+                            id="billingUsage"
+                            min="0"
+                            step="0.1"
+                            value="342.5"
+                            placeholder="Enter consumption" />
+                        <span>kWh</span>
+                    </div>
+                    <small>Enter your estimated monthly consumption.</small>
+                </div>
+
+                <div class="billing-input-group">
+                    <label for="billingRate">Electricity Rate</label>
+                    <div class="billing-input-wrapper">
+                        <span class="billing-currency">₱</span>
+                        <input
+                            type="number"
+                            id="billingRate"
+                            min="0"
+                            step="0.01"
+                            value="12.00"
+                            placeholder="Enter rate" />
+                        <span>/ kWh</span>
+                    </div>
+                    <small>Use your applicable estimated rate.</small>
+                </div>
+
+                <button type="button" class="billing-calculate-button" id="calculateBill">
+                    Calculate Estimate
+                </button>
+
+            </div>
+
+            <div class="billing-calculator-result">
+                <span>Estimated Electricity Bill</span>
+                <strong id="estimatedBill">₱4,110.00</strong>
+                <p id="calculationDetails">342.5 kWh × ₱12.00 per kWh</p>
+                <small>This is an estimate, not an official bill.</small>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BILLING HISTORY -->
+    <section class="kt-card billing-history-card">
+
+        <div class="billing-section-header">
+            <div>
+                <h2>Billing History</h2>
+                <p>Review your previous electricity billing records.</p>
+            </div>
+
+            <span class="billing-history-count">3 Records</span>
+        </div>
+
+        <div class="billing-table-wrapper">
+            <table class="billing-history-table">
+                <thead>
+                    <tr>
+                        <th>Billing Period</th>
+                        <th>Consumption</th>
+                        <th>Amount</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>October 2026</strong>
+                            <small>Previous billing</small>
+                        </td>
+                        <td>328.4 kWh</td>
+                        <td class="billing-table-amount">₱3,940.80</td>
+                        <td>Nov 10, 2026</td>
+                        <td><span class="billing-history-status status-paid">Paid</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong>September 2026</strong>
+                            <small>Previous billing</small>
+                        </td>
+                        <td>315.2 kWh</td>
+                        <td class="billing-table-amount">₱3,782.40</td>
+                        <td>Oct 10, 2026</td>
+                        <td><span class="billing-history-status status-paid">Paid</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong>August 2026</strong>
+                            <small>Previous billing</small>
+                        </td>
+                        <td>350.6 kWh</td>
+                        <td class="billing-table-amount">₱4,207.20</td>
+                        <td>Sep 10, 2026</td>
+                        <td><span class="billing-history-status status-paid">Paid</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="billing-history-footer">
+            <span>Showing sample billing records</span>
+        </div>
+
+    </section>
+
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const usageInput = document.getElementById("billingUsage");
+            const rateInput = document.getElementById("billingRate");
+            const calculateButton = document.getElementById("calculateBill");
+            const estimatedBill = document.getElementById("estimatedBill");
+            const calculationDetails = document.getElementById("calculationDetails");
+
+            const pesoFormatter = new Intl.NumberFormat("en-PH", {
+                style: "currency",
+                currency: "PHP",
+                minimumFractionDigits: 2
+            });
+
+            calculateButton.addEventListener("click", function () {
+                const usage = Number(usageInput.value);
+                const rate = Number(rateInput.value);
+
+                if (
+                    usageInput.value.trim() === "" ||
+                    rateInput.value.trim() === "" ||
+                    !Number.isFinite(usage) ||
+                    !Number.isFinite(rate) ||
+                    usage < 0 ||
+                    rate < 0
+                ) {
+                    estimatedBill.textContent = "Invalid input";
+                    calculationDetails.textContent =
+                        "Please enter valid non-negative values.";
+                    return;
+                }
+
+                const total = usage * rate;
+
+                estimatedBill.textContent = pesoFormatter.format(total);
+                calculationDetails.textContent =
+                    `${usage.toLocaleString("en-PH")} kWh × ${pesoFormatter.format(rate)} per kWh`;
+            });
+        });
+    </script>
+}

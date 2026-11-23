@@ -1,4 +1,11 @@
 ﻿
+
+@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +35,8 @@
     <link rel="stylesheet"
           href="~/css/components.css"
           asp-append-version="true" />
+    
+    <link rel="stylesheet" href="~/css/billing.css" asp-append-version="true" />
 
     <link rel="stylesheet"
       href="~/css/dashboard.css"
@@ -62,43 +71,54 @@
 
                 <span class="kt-sidebar-label">WORKSPACE</span>
 
-                <nav class="kt-navigation">
+                
+<nav class="kt-navigation">
 
-                    <a asp-controller="Dashboard"
-                       asp-action="Index"
-                       class="kt-nav-link active">
-                        <span class="kt-nav-icon">▦</span>
-                        <span>Overview</span>
-                    </a>
+    <!-- OVERVIEW -->
+    <a asp-controller="Dashboard"
+       asp-action="Index"
+       class="kt-nav-link @(currentController == "Dashboard" ? "active" : "")">
 
-                    <a asp-controller="Usage"
-   asp-action="Index"
-   class="kt-nav-link">
-    <span class="kt-nav-icon">ϟ</span>
-    <span>Real-Time Usage</span>
-</a>
+        <span class="kt-nav-icon">▦</span>
+        <span>Overview</span>
+    </a>
 
-                    <a href="#" class="kt-nav-link">
-                        <span class="kt-nav-icon">▤</span>
-                        <span>Billing & Rates</span>
-                    </a>
+    <!-- REAL-TIME USAGE -->
+    <a asp-controller="Usage"
+       asp-action="Index"
+       class="kt-nav-link @(currentController == "Usage" ? "active" : "")">
 
-                    <a href="#" class="kt-nav-link">
-                        <span class="kt-nav-icon">⌂</span>
-                        <span>Appliance Audit</span>
-                    </a>
+        <span class="kt-nav-icon">ϟ</span>
+        <span>Real-Time Usage</span>
+    </a>
 
-                    <a href="#" class="kt-nav-link">
-                        <span class="kt-nav-icon">⚡</span>
-                        <span>Outage Advisories</span>
-                    </a>
+    <!-- BILLING & RATES -->
+    <a asp-controller="Billing"
+       asp-action="Index"
+       class="kt-nav-link @(currentController == "Billing" ? "active" : "")">
 
-                    <a href="#" class="kt-nav-link">
-                        <span class="kt-nav-icon">☀</span>
-                        <span>Solar & Net Metering</span>
-                    </a>
+        <span class="kt-nav-icon">▤</span>
+        <span>Billing & Rates</span>
+    </a>
 
-                </nav>
+    <!-- OTHER SECTIONS — NOT CONNECTED YET -->
+    <a href="#" class="kt-nav-link">
+        <span class="kt-nav-icon">⌂</span>
+        <span>Appliance Audit</span>
+    </a>
+
+    <a href="#" class="kt-nav-link">
+        <span class="kt-nav-icon">⚡</span>
+        <span>Outage Advisories</span>
+    </a>
+
+    <a href="#" class="kt-nav-link">
+        <span class="kt-nav-icon">☀</span>
+        <span>Solar & Net Metering</span>
+    </a>
+
+</nav>
+
             </div>
 
             <!-- SIDEBAR HELP -->
