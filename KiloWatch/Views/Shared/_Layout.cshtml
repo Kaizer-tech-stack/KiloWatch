@@ -44,6 +44,8 @@
     
     <link rel="stylesheet" href="~/css/usage.css" asp-append-version="true" />
 
+    <link rel="stylesheet" href="~/css/appliance.css" asp-append-version="true" />
+
     <link rel="stylesheet"
           href="~/KiloWatch.styles.css"
           asp-append-version="true" />
@@ -102,10 +104,14 @@
     </a>
 
     <!-- OTHER SECTIONS — NOT CONNECTED YET -->
-    <a href="#" class="kt-nav-link">
-        <span class="kt-nav-icon">⌂</span>
-        <span>Appliance Audit</span>
-    </a>
+    
+<a asp-controller="Appliance"
+   asp-action="Index"
+   class="kt-nav-link @(currentController == "Appliance" ? "active" : "")">
+    <span class="kt-nav-icon">⌂</span>
+    <span>Appliance Audit</span>
+</a>
+
 
     <a href="#" class="kt-nav-link">
         <span class="kt-nav-icon">⚡</span>

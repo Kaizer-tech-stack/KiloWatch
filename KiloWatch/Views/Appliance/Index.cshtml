@@ -1,0 +1,815 @@
+
+@{
+    ViewData["Title"] = "Appliance Audit";
+}
+
+<section class="appliance-page">
+
+    <!-- PAGE HEADER -->
+    <div class="appliance-heading">
+        <div>
+            <p class="appliance-eyebrow">ENERGY MANAGEMENT</p>
+            <h1>Appliance Audit</h1>
+            <p class="appliance-subtitle">
+                Review your household appliances and understand how they
+                contribute to your electricity consumption.
+            </p>
+        </div>
+
+        <div class="appliance-header-badge">
+            <span class="appliance-status-dot"></span>
+            Household Analysis
+        </div>
+    </div>
+
+    <!-- DEMO NOTICE -->
+    <div class="appliance-notice">
+        <span class="appliance-notice-icon">ⓘ</span>
+        <p>
+            <strong>Sample household data.</strong>
+            Appliance readings and estimated costs are illustrative.
+            Actual consumption may vary depending on appliance usage.
+        </p>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="appliance-section-heading">
+        <div>
+            <h2>Appliance Overview</h2>
+            <p>Your household's estimated energy consumption.</p>
+        </div>
+    </div>
+
+    <div class="appliance-stats">
+
+        <article class="appliance-stat-card">
+            <div class="appliance-stat-top">
+                <span class="appliance-stat-label">Total Appliances</span>
+                <span class="appliance-stat-icon">▦</span>
+            </div>
+            <h3 id="totalAppliances">6</h3>
+            <p>Registered household appliances</p>
+        </article>
+
+        <article class="appliance-stat-card">
+            <div class="appliance-stat-top">
+                <span class="appliance-stat-label">Daily Consumption</span>
+                <span class="appliance-stat-icon">ϟ</span>
+            </div>
+            <h3 id="dailyConsumption">15.88 <small>kWh</small></h3>
+            <p>Estimated electricity usage per day</p>
+        </article>
+
+        <article class="appliance-stat-card">
+            <div class="appliance-stat-top">
+                <span class="appliance-stat-label">Monthly Consumption</span>
+                <span class="appliance-stat-icon">▤</span>
+            </div>
+            <h3 id="monthlyConsumption">476.40 <small>kWh</small></h3>
+            <p>Based on a 30-day estimate</p>
+        </article>
+
+        <article class="appliance-stat-card appliance-stat-highlight">
+            <div class="appliance-stat-top">
+                <span class="appliance-stat-label">Estimated Monthly Cost</span>
+                <span class="appliance-stat-icon">₱</span>
+            </div>
+            <h3 id="monthlyCost">₱5,716.80</h3>
+            <p>Calculated using ₱12.00 per kWh</p>
+        </article>
+
+    </div>
+
+    <!-- INVENTORY -->
+    <div class="appliance-inventory-section">
+
+        <div class="appliance-section-heading appliance-inventory-heading">
+            <div>
+                <h2>Appliance Inventory</h2>
+                <p>Manage your registered household appliances.</p>
+            </div>
+
+            <button type="button" class="appliance-add-button" id="showAddForm">
+                <span>＋</span> Add Appliance
+            </button>
+        </div>
+
+        <!-- ADD APPLIANCE FORM -->
+        <div class="appliance-form-card" id="applianceFormCard" hidden>
+
+            <div class="appliance-form-heading">
+                <div>
+                    <h3>Add New Appliance</h3>
+                    <p>Enter the appliance's estimated power consumption.</p>
+                </div>
+
+                <button type="button" class="appliance-close-button"
+                        id="closeAddForm" aria-label="Close form">
+                    ×
+                </button>
+            </div>
+
+            <form id="applianceForm">
+
+                <div class="appliance-form-grid">
+
+                    <div class="appliance-field">
+                        <label for="applianceName">Appliance Name</label>
+                        <input type="text" id="applianceName"
+                               placeholder="e.g. Air Conditioner"
+                               required maxlength="50">
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="applianceCategory">Category</label>
+                        <select id="applianceCategory" required>
+                            <option value="">Select category</option>
+                            <option value="Cooling">Cooling</option>
+                            <option value="Kitchen">Kitchen</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Lighting">Lighting</option>
+                            <option value="Laundry">Laundry</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="applianceWatts">Power Rating (Watts)</label>
+                        <input type="number" id="applianceWatts"
+                               placeholder="e.g. 1200"
+                               min="1" max="100000" step="1" required>
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="applianceQuantity">Quantity</label>
+                        <input type="number" id="applianceQuantity"
+                               value="1" min="1" max="100" step="1" required>
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="applianceHours">Hours Used Per Day</label>
+                        <input type="number" id="applianceHours"
+                               placeholder="e.g. 8"
+                               min="0.1" max="24" step="0.1" required>
+                    </div>
+
+                </div>
+
+                <div class="appliance-form-actions">
+                    <button type="button" class="appliance-cancel-button"
+                            id="cancelAddForm">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="appliance-save-button">
+                        Save Appliance
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="appliance-table-toolbar">
+            <div class="appliance-search">
+                <span>⌕</span>
+                <input type="search" id="applianceSearch"
+                       placeholder="Search appliances...">
+            </div>
+
+            <span class="appliance-record-count" id="recordCount">
+                6 appliances
+            </span>
+        </div>
+
+        <!-- TABLE -->
+        <div class="appliance-table-wrapper">
+            <table class="appliance-table">
+                <thead>
+                    <tr>
+                        <th>Appliance</th>
+                        <th>Power Rating</th>
+                        <th>Quantity</th>
+                        <th>Hours / Day</th>
+                        <th>Daily Usage</th>
+                        <th>Monthly Cost</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="applianceTableBody">
+                    <!-- JavaScript renders appliance records here -->
+                </tbody>
+            </table>
+
+            <div class="appliance-empty-state" id="emptyState" hidden>
+                <span>▦</span>
+                <h3>No appliances found</h3>
+                <p>Try another search or add a new appliance.</p>
+            </div>
+        </div>
+
+        <div class="appliance-table-footer">
+            <span>Estimated values based on your entered appliance details.</span>
+            <span>Electricity rate: <strong>₱12.00 / kWh</strong></span>
+        </div>
+
+    </div>
+
+    <!-- CONSUMPTION ANALYSIS -->
+    <div class="appliance-analysis-grid">
+
+        <section class="appliance-analysis-card">
+            <div class="appliance-card-heading">
+                <div>
+                    <h2>Energy Consumption Analysis</h2>
+                    <p>Estimated daily usage by appliance.</p>
+                </div>
+            </div>
+
+            <div id="consumptionBreakdown" class="appliance-breakdown">
+                <!-- JavaScript renders breakdown here -->
+            </div>
+        </section>
+
+        <section class="appliance-top-card">
+            <div class="appliance-card-heading">
+                <div>
+                    <h2>Highest Energy Consumer</h2>
+                    <p>Appliance with the largest daily consumption.</p>
+                </div>
+            </div>
+
+            <div class="appliance-top-content">
+                <div class="appliance-top-icon">ϟ</div>
+                <div>
+                    <p class="appliance-top-label">TOP CONSUMER</p>
+                    <h3 id="topApplianceName">Air Conditioner</h3>
+                    <p id="topApplianceUsage">9.60 kWh per day</p>
+                </div>
+            </div>
+
+            <div class="appliance-top-footer">
+                <span>Estimated monthly consumption</span>
+                <strong id="topApplianceMonthly">288.00 kWh</strong>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div class="appliance-modal-overlay" id="deleteModal" hidden>
+        <div class="appliance-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="deleteModalTitle"
+             aria-describedby="deleteModalMessage">
+
+            <button type="button"
+                    class="appliance-modal-close"
+                    id="closeDeleteModal"
+                    aria-label="Close confirmation">
+                &times;
+            </button>
+
+            <div class="appliance-modal-icon">!</div>
+
+            <h3 id="deleteModalTitle">Remove Appliance?</h3>
+
+            <p id="deleteModalMessage">
+                Are you sure you want to remove this appliance?
+                This action cannot be undone.
+            </p>
+
+            <div class="appliance-modal-actions">
+                <button type="button"
+                        class="appliance-modal-cancel"
+                        id="cancelDelete">
+                    Cancel
+                </button>
+
+                <button type="button"
+                        class="appliance-modal-confirm"
+                        id="confirmDelete">
+                    Remove Appliance
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- EDIT APPLIANCE MODAL -->
+    <div class="appliance-modal-overlay" id="editModal" hidden>
+        <div class="appliance-modal appliance-edit-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="editModalTitle">
+
+            <button type="button"
+                    class="appliance-modal-close"
+                    id="closeEditModal"
+                    aria-label="Close edit form">
+                &times;
+            </button>
+
+            <div class="appliance-modal-icon appliance-edit-icon">✎</div>
+
+            <h3 id="editModalTitle">Edit Appliance</h3>
+            <p>Update the appliance information below.</p>
+
+            <form id="editApplianceForm">
+                <div class="appliance-form-grid">
+
+                    <div class="appliance-field">
+                        <label for="editName">Appliance Name</label>
+                        <input type="text" id="editName"
+                               required maxlength="50">
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="editCategory">Category</label>
+                        <select id="editCategory" required>
+                            <option value="Cooling">Cooling</option>
+                            <option value="Kitchen">Kitchen</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Lighting">Lighting</option>
+                            <option value="Laundry">Laundry</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="editWatts">Power Rating (Watts)</label>
+                        <input type="number" id="editWatts"
+                               min="1" max="100000" step="1" required>
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="editQuantity">Quantity</label>
+                        <input type="number" id="editQuantity"
+                               min="1" max="100" step="1" required>
+                    </div>
+
+                    <div class="appliance-field">
+                        <label for="editHours">Hours Used Per Day</label>
+                        <input type="number" id="editHours"
+                               min="0.1" max="24" step="0.1" required>
+                    </div>
+
+                </div>
+
+                <div class="appliance-modal-actions">
+                    <button type="button"
+                            class="appliance-modal-cancel"
+                            id="cancelEdit">
+                        Cancel
+                    </button>
+
+                    <button type="submit"
+                            class="appliance-modal-confirm appliance-update-button">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- CALCULATION NOTE -->
+    <p class="appliance-calculation-note">
+        <strong>Calculation:</strong>
+        Daily kWh = (Watts × Quantity × Hours Used) ÷ 1,000.
+        Monthly estimates use 30 days and an illustrative electricity rate of ₱12.00/kWh.
+    </p>
+
+</section>
+
+@section Scripts {
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const ELECTRICITY_RATE = 12;
+    const DAYS_PER_MONTH = 30;
+
+    // INITIAL SAMPLE HOUSEHOLD APPLIANCES
+    let appliances = [
+        { id: 1, name: "Air Conditioner", category: "Cooling", watts: 1200, quantity: 1, hours: 8 },
+        { id: 2, name: "Refrigerator", category: "Kitchen", watts: 150, quantity: 1, hours: 24 },
+        { id: 3, name: "Television", category: "Entertainment", watts: 100, quantity: 1, hours: 5 },
+        { id: 4, name: "LED Lights", category: "Lighting", watts: 10, quantity: 8, hours: 6 },
+        { id: 5, name: "Electric Fan", category: "Cooling", watts: 60, quantity: 2, hours: 10 },
+        { id: 6, name: "Washing Machine", category: "Laundry", watts: 500, quantity: 1, hours: 1 }
+    ];
+
+    // GENERAL ELEMENTS
+    const tableBody = document.getElementById("applianceTableBody");
+    const form = document.getElementById("applianceForm");
+    const formCard = document.getElementById("applianceFormCard");
+    const searchInput = document.getElementById("applianceSearch");
+    const emptyState = document.getElementById("emptyState");
+
+    // DELETE MODAL ELEMENTS
+    const deleteModal = document.getElementById("deleteModal");
+    const deleteModalMessage = document.getElementById("deleteModalMessage");
+    const confirmDeleteButton = document.getElementById("confirmDelete");
+    const cancelDeleteButton = document.getElementById("cancelDelete");
+    const closeDeleteButton = document.getElementById("closeDeleteModal");
+
+    let pendingDeleteId = null;
+
+    // EDIT MODAL ELEMENTS
+    const editModal = document.getElementById("editModal");
+    const editForm = document.getElementById("editApplianceForm");
+    const editName = document.getElementById("editName");
+    const editCategory = document.getElementById("editCategory");
+    const editWatts = document.getElementById("editWatts");
+    const editQuantity = document.getElementById("editQuantity");
+    const editHours = document.getElementById("editHours");
+    const cancelEditButton = document.getElementById("cancelEdit");
+    const closeEditButton = document.getElementById("closeEditModal");
+
+    let editingApplianceId = null;
+
+    // FORMATTING
+    const money = value =>
+        "₱" + value.toLocaleString("en-PH", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+    const number = value =>
+        value.toLocaleString("en-PH", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+    // CALCULATIONS
+    function getDailyUsage(appliance) {
+        return (appliance.watts * appliance.quantity * appliance.hours) / 1000;
+    }
+
+    function getMonthlyUsage(appliance) {
+        return getDailyUsage(appliance) * DAYS_PER_MONTH;
+    }
+
+    function getMonthlyCost(appliance) {
+        return getMonthlyUsage(appliance) * ELECTRICITY_RATE;
+    }
+
+    // OPEN EDIT MODAL
+    function openEditModal(appliance) {
+        editingApplianceId = appliance.id;
+
+        editName.value = appliance.name;
+        editCategory.value = appliance.category;
+        editWatts.value = appliance.watts;
+        editQuantity.value = appliance.quantity;
+        editHours.value = appliance.hours;
+
+        editModal.hidden = false;
+        editName.focus();
+    }
+
+    // CLOSE EDIT MODAL
+    function closeEditModal() {
+        editModal.hidden = true;
+        editingApplianceId = null;
+        editForm.reset();
+    }
+
+    // EDIT MODAL BUTTONS
+    cancelEditButton.addEventListener("click", closeEditModal);
+    closeEditButton.addEventListener("click", closeEditModal);
+
+    editModal.addEventListener("click", function (event) {
+        if (event.target === editModal) {
+            closeEditModal();
+        }
+    });
+
+    // RENDER APPLIANCE TABLE
+    function renderTable() {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        const filteredAppliances = appliances.filter(appliance =>
+            appliance.name.toLowerCase().includes(searchTerm) ||
+            appliance.category.toLowerCase().includes(searchTerm)
+        );
+
+        tableBody.innerHTML = "";
+
+        filteredAppliances.forEach(appliance => {
+            const row = document.createElement("tr");
+
+            const cells = [
+                { className: "appliance-name-cell", text: appliance.name },
+                { text: appliance.watts.toLocaleString("en-PH") + " W" },
+                { text: appliance.quantity },
+                { text: number(appliance.hours) + " hrs" },
+                { className: "appliance-usage-cell", text: number(getDailyUsage(appliance)) + " kWh" },
+                { className: "appliance-cost-cell", text: money(getMonthlyCost(appliance)) }
+            ];
+
+            cells.forEach(cellData => {
+                const cell = document.createElement("td");
+                cell.textContent = cellData.text;
+
+                if (cellData.className) {
+                    cell.className = cellData.className;
+                }
+
+                row.appendChild(cell);
+            });
+
+            const actionCell = document.createElement("td");
+
+            // EDIT BUTTON
+            const editButton = document.createElement("button");
+
+            editButton.type = "button";
+            editButton.className = "appliance-edit-button";
+            editButton.textContent = "Edit";
+            editButton.setAttribute("aria-label", "Edit " + appliance.name);
+
+            editButton.addEventListener("click", function () {
+                openEditModal(appliance);
+            });
+
+            // DELETE BUTTON
+            const deleteButton = document.createElement("button");
+
+            deleteButton.type = "button";
+            deleteButton.className = "appliance-delete-button";
+            deleteButton.textContent = "Remove";
+            deleteButton.setAttribute("aria-label", "Remove " + appliance.name);
+
+            deleteButton.addEventListener("click", function () {
+                pendingDeleteId = appliance.id;
+
+                deleteModalMessage.textContent =
+                    `Are you sure you want to remove "${appliance.name}"? This action cannot be undone.`;
+
+                deleteModal.hidden = false;
+                cancelDeleteButton.focus();
+            });
+
+            actionCell.append(editButton, deleteButton);
+            row.appendChild(actionCell);
+            tableBody.appendChild(row);
+        });
+
+        emptyState.hidden = filteredAppliances.length !== 0;
+
+        document.getElementById("recordCount").textContent =
+            filteredAppliances.length + " of " + appliances.length + " appliances";
+    }
+
+    // RENDER CONSUMPTION BREAKDOWN
+    function renderBreakdown() {
+        const breakdown = document.getElementById("consumptionBreakdown");
+        breakdown.innerHTML = "";
+
+        const totalDailyUsage = appliances.reduce(
+            (total, appliance) => total + getDailyUsage(appliance), 0
+        );
+
+        const sortedAppliances = [...appliances].sort(
+            (a, b) => getDailyUsage(b) - getDailyUsage(a)
+        );
+
+        if (totalDailyUsage === 0 || appliances.length === 0) {
+            breakdown.textContent = "Add appliances to see your consumption analysis.";
+            return;
+        }
+
+        sortedAppliances.forEach(appliance => {
+            const dailyUsage = getDailyUsage(appliance);
+            const percentage = (dailyUsage / totalDailyUsage) * 100;
+
+            const item = document.createElement("div");
+            item.className = "appliance-breakdown-item";
+
+            const header = document.createElement("div");
+            header.className = "appliance-breakdown-header";
+
+            const name = document.createElement("strong");
+            name.textContent = appliance.name;
+
+            const usage = document.createElement("span");
+            usage.textContent = number(dailyUsage) + " kWh";
+
+            header.append(name, usage);
+
+            const track = document.createElement("div");
+            track.className = "appliance-progress-track";
+
+            const bar = document.createElement("div");
+            bar.className = "appliance-progress-bar";
+            bar.style.width = percentage + "%";
+
+            track.appendChild(bar);
+
+            const detail = document.createElement("p");
+            detail.textContent = number(percentage) + "% of total daily usage";
+
+            item.append(header, track, detail);
+            breakdown.appendChild(item);
+        });
+    }
+
+    // UPDATE OVERVIEW CARDS
+    function updateOverview() {
+        const totalDaily = appliances.reduce(
+            (total, appliance) => total + getDailyUsage(appliance), 0
+        );
+
+        const totalMonthly = totalDaily * DAYS_PER_MONTH;
+        const totalCost = totalMonthly * ELECTRICITY_RATE;
+
+        document.getElementById("totalAppliances").textContent = appliances.length;
+
+        document.getElementById("dailyConsumption").innerHTML =
+            number(totalDaily) + " <small>kWh</small>";
+
+        document.getElementById("monthlyConsumption").innerHTML =
+            number(totalMonthly) + " <small>kWh</small>";
+
+        document.getElementById("monthlyCost").textContent = money(totalCost);
+
+        const topAppliance = [...appliances].sort(
+            (a, b) => getDailyUsage(b) - getDailyUsage(a)
+        )[0];
+
+        document.getElementById("topApplianceName").textContent =
+            topAppliance ? topAppliance.name : "No appliances yet";
+
+        document.getElementById("topApplianceUsage").textContent =
+            topAppliance
+                ? number(getDailyUsage(topAppliance)) + " kWh per day"
+                : "Add an appliance to begin";
+
+        document.getElementById("topApplianceMonthly").textContent =
+            topAppliance
+                ? number(getMonthlyUsage(topAppliance)) + " kWh"
+                : "0.00 kWh";
+    }
+
+    // REFRESH DASHBOARD
+    function updateDashboard() {
+        updateOverview();
+        renderTable();
+        renderBreakdown();
+    }
+
+    // UPDATE APPLIANCE
+    editForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const updatedName = editName.value.trim();
+        const updatedCategory = editCategory.value;
+        const updatedWatts = Number(editWatts.value);
+        const updatedQuantity = Number(editQuantity.value);
+        const updatedHours = Number(editHours.value);
+
+        // VALIDATION
+        if (
+            updatedName === "" ||
+            !updatedCategory ||
+            !Number.isFinite(updatedWatts) ||
+            updatedWatts <= 0 ||
+            updatedWatts > 100000 ||
+            !Number.isInteger(updatedQuantity) ||
+            updatedQuantity < 1 ||
+            updatedQuantity > 100 ||
+            !Number.isFinite(updatedHours) ||
+            updatedHours <= 0 ||
+            updatedHours > 24
+        ) {
+            alert("Please enter valid appliance information.");
+            return;
+        }
+
+        // FIND SELECTED APPLIANCE
+        const appliance = appliances.find(function (item) {
+            return item.id === editingApplianceId;
+        });
+
+        if (!appliance) {
+            alert("Appliance could not be found.");
+            closeEditModal();
+            return;
+        }
+
+        // APPLY CHANGES
+        appliance.name = updatedName;
+        appliance.category = updatedCategory;
+        appliance.watts = updatedWatts;
+        appliance.quantity = updatedQuantity;
+        appliance.hours = updatedHours;
+
+        closeEditModal();
+        updateDashboard();
+    });
+
+    // DELETE MODAL
+    function closeDeleteModal() {
+        deleteModal.hidden = true;
+        pendingDeleteId = null;
+    }
+
+    cancelDeleteButton.addEventListener("click", closeDeleteModal);
+    closeDeleteButton.addEventListener("click", closeDeleteModal);
+
+    // CONFIRM DELETION
+    confirmDeleteButton.addEventListener("click", function () {
+        if (pendingDeleteId === null) {
+            return;
+        }
+
+        appliances = appliances.filter(
+            appliance => appliance.id !== pendingDeleteId
+        );
+
+        closeDeleteModal();
+        updateDashboard();
+    });
+
+    // CLOSE DELETE MODAL WHEN CLICKING OUTSIDE
+    deleteModal.addEventListener("click", function (event) {
+        if (event.target === deleteModal) {
+            closeDeleteModal();
+        }
+    });
+
+    // ESCAPE KEY FOR BOTH MODALS
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            if (!editModal.hidden) {
+                closeEditModal();
+            }
+
+            if (!deleteModal.hidden) {
+                closeDeleteModal();
+            }
+        }
+    });
+
+    // SHOW ADD APPLIANCE FORM
+    document.getElementById("showAddForm").addEventListener("click", function () {
+        formCard.hidden = false;
+        document.getElementById("applianceName").focus();
+    });
+
+    // CLOSE ADD APPLIANCE FORM
+    function closeForm() {
+        formCard.hidden = true;
+        form.reset();
+        document.getElementById("applianceQuantity").value = 1;
+    }
+
+    document.getElementById("closeAddForm").addEventListener("click", closeForm);
+    document.getElementById("cancelAddForm").addEventListener("click", closeForm);
+
+    // CREATE APPLIANCE
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("applianceName").value.trim();
+        const category = document.getElementById("applianceCategory").value;
+        const watts = Number(document.getElementById("applianceWatts").value);
+        const quantity = Number(document.getElementById("applianceQuantity").value);
+        const hours = Number(document.getElementById("applianceHours").value);
+
+        if (
+            !name ||
+            !category ||
+            !Number.isFinite(watts) || watts <= 0 || watts > 100000 ||
+            !Number.isInteger(quantity) || quantity < 1 || quantity > 100 ||
+            !Number.isFinite(hours) || hours <= 0 || hours > 24
+        ) {
+            alert("Please enter valid appliance details. Hours used must be between 0 and 24.");
+            return;
+        }
+
+        appliances.push({
+            id: Date.now(),
+            name,
+            category,
+            watts,
+            quantity,
+            hours
+        });
+
+        closeForm();
+        updateDashboard();
+    });
+
+    // SEARCH APPLIANCES
+    searchInput.addEventListener("input", renderTable);
+
+    // INITIAL PAGE RENDER
+    updateDashboard();
+
+});
+</script>
+}

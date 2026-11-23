@@ -1,0 +1,979 @@
+/* =========================================
+   KILOWATCH — APPLIANCE AUDIT
+========================================= */
+
+.appliance-page {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  color: var(--color-navy);
+}
+
+/* PAGE HEADER */
+
+.appliance-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.appliance-eyebrow {
+  margin: 0 0 8px;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.appliance-heading h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.appliance-subtitle {
+  margin: 8px 0 0;
+  color: var(--color-slate);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.appliance-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  color: var(--color-slate);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.appliance-status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--color-success);
+  border-radius: 50%;
+}
+
+/* NOTICE */
+
+.appliance-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 17px;
+  background: #fff8ef;
+  border: 1px solid #f5e4cf;
+  border-radius: var(--radius-md);
+}
+
+.appliance-notice-icon {
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.appliance-notice p {
+  margin: 0;
+  color: #78644e;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.appliance-notice strong {
+  color: #684522;
+}
+
+/* SECTION HEADINGS */
+
+.appliance-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.appliance-section-heading h2,
+.appliance-card-heading h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.appliance-section-heading p,
+.appliance-card-heading p {
+  margin: 5px 0 0;
+  color: var(--color-slate);
+  font-size: 12px;
+}
+
+/* OVERVIEW CARDS */
+
+.appliance-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.appliance-stat-card {
+  min-width: 0;
+  padding: 19px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.appliance-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(25, 42, 64, 0.07);
+}
+
+.appliance-stat-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.appliance-stat-label {
+  color: var(--color-slate);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.appliance-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: var(--color-primary-soft);
+  border-radius: 9px;
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.appliance-stat-card h3 {
+  margin: 17px 0 5px;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+}
+
+.appliance-stat-card h3 small {
+  color: var(--color-slate);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.appliance-stat-card > p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.appliance-stat-highlight {
+  background: #fffaf5;
+  border-color: #f4dfca;
+}
+
+.appliance-stat-highlight .appliance-stat-icon {
+  background: #ffead8;
+}
+
+.appliance-stat-highlight h3 {
+  color: var(--color-primary-dark);
+}
+
+/* INVENTORY SECTION */
+
+.appliance-inventory-section {
+  padding: 22px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.appliance-inventory-heading {
+  margin-bottom: 20px;
+}
+
+.appliance-add-button,
+.appliance-save-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 39px;
+  padding: 0 16px;
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.appliance-add-button:hover,
+.appliance-save-button:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.appliance-add-button span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* ADD APPLIANCE FORM */
+
+.appliance-form-card {
+  margin-bottom: 22px;
+  padding: 20px;
+  background: #fbfcfd;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.appliance-form-card[hidden] {
+  display: none !important;
+}
+
+.appliance-form-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.appliance-form-heading h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.appliance-form-heading p {
+  margin: 5px 0 0;
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.appliance-close-button {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  color: var(--color-slate);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.appliance-close-button:hover {
+  color: var(--color-danger);
+}
+
+.appliance-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.appliance-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.appliance-field label {
+  color: var(--color-navy);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.appliance-field input,
+.appliance-field select {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 11px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  outline: none;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 12px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.appliance-field input:focus,
+.appliance-field select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+.appliance-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.appliance-cancel-button {
+  min-height: 39px;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-slate);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.appliance-cancel-button:hover {
+  background: #f5f6f8;
+}
+
+/* SEARCH TOOLBAR */
+
+.appliance-table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 14px;
+}
+
+.appliance-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: min(100%, 310px);
+  min-height: 38px;
+  padding: 0 11px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.appliance-search span {
+  color: var(--color-muted);
+  font-size: 20px;
+}
+
+.appliance-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+
+.appliance-search input::placeholder {
+  color: var(--color-muted);
+}
+
+.appliance-record-count {
+  color: var(--color-slate);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* INVENTORY TABLE */
+
+.appliance-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+}
+
+.appliance-table {
+  width: 100%;
+  min-width: 790px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.appliance-table thead {
+  background: #f7f8fa;
+}
+
+.appliance-table th {
+  padding: 13px 14px;
+  color: var(--color-slate);
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.appliance-table td {
+  padding: 15px 14px;
+  color: #5e6b7c;
+  font-size: 11px;
+  border-bottom: 1px solid #f0f1f3;
+  white-space: nowrap;
+}
+
+.appliance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.appliance-table tbody tr:hover {
+  background: #fffaf6;
+}
+
+.appliance-table .appliance-name-cell {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.appliance-table .appliance-usage-cell {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.appliance-table .appliance-cost-cell {
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.appliance-delete-button {
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #f0dada;
+  border-radius: 6px;
+  color: var(--color-danger);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.appliance-delete-button:hover {
+  background: #fff2f2;
+}
+
+.appliance-empty-state {
+  padding: 35px 15px;
+  text-align: center;
+}
+
+.appliance-empty-state[hidden] {
+  display: none !important;
+}
+
+.appliance-empty-state > span {
+  color: var(--color-muted);
+  font-size: 30px;
+}
+
+.appliance-empty-state h3 {
+  margin: 8px 0 5px;
+  font-size: 14px;
+}
+
+.appliance-empty-state p {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.appliance-table-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.appliance-table-footer strong {
+  color: var(--color-navy);
+}
+
+/* CONSUMPTION ANALYSIS */
+
+.appliance-analysis-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 18px;
+}
+
+.appliance-analysis-card,
+.appliance-top-card {
+  min-width: 0;
+  padding: 22px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.appliance-card-heading {
+  margin-bottom: 23px;
+}
+
+.appliance-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.appliance-breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.appliance-breakdown-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.appliance-breakdown-header strong {
+  color: var(--color-navy);
+  font-size: 11px;
+}
+
+.appliance-breakdown-header span {
+  color: var(--color-primary-dark);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.appliance-progress-track {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  background: #edf0f3;
+  border-radius: 10px;
+}
+
+.appliance-progress-bar {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.appliance-breakdown-item p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+/* TOP CONSUMER */
+
+.appliance-top-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 130px;
+  padding: 17px;
+  background: #fff8f1;
+  border: 1px solid #f5e6d8;
+  border-radius: 10px;
+}
+
+.appliance-top-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  background: #ffead8;
+  border-radius: 13px;
+  color: var(--color-primary);
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.appliance-top-label {
+  margin: 0 0 7px;
+  color: var(--color-primary-dark);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.appliance-top-content h3 {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 17px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.appliance-top-content > div:last-child > p:last-child {
+  margin: 6px 0 0;
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.appliance-top-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 17px;
+  margin-top: 17px;
+  border-top: 1px solid var(--color-border);
+}
+
+.appliance-top-footer span {
+  color: var(--color-slate);
+  font-size: 10px;
+}
+
+.appliance-top-footer strong {
+  color: var(--color-navy);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* CALCULATION NOTE */
+
+.appliance-calculation-note {
+  margin: -7px 0 0;
+  color: var(--color-muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.appliance-calculation-note strong {
+  color: var(--color-slate);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1100px) {
+  .appliance-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .appliance-analysis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .appliance-page {
+    gap: 21px;
+  }
+
+  .appliance-heading {
+    flex-direction: column;
+  }
+
+  .appliance-heading h1 {
+    font-size: 25px;
+  }
+
+  .appliance-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .appliance-inventory-section {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .appliance-stats {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .appliance-stat-card {
+    padding: 16px;
+  }
+
+  .appliance-stat-card h3 {
+    margin-top: 12px;
+    font-size: 23px;
+  }
+
+  .appliance-inventory-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .appliance-add-button {
+    width: 100%;
+  }
+
+  .appliance-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .appliance-table-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .appliance-search {
+    width: 100%;
+  }
+
+  .appliance-table-footer {
+    flex-direction: column;
+  }
+
+  .appliance-analysis-card,
+  .appliance-top-card {
+    padding: 17px;
+  }
+
+  .appliance-top-content {
+    align-items: flex-start;
+  }
+}
+
+/* =========================================
+   DELETE CONFIRMATION MODAL
+========================================= */
+
+.appliance-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(18, 30, 46, 0.55);
+  backdrop-filter: blur(3px);
+  animation: applianceFadeIn 0.2s ease;
+}
+
+.appliance-modal-overlay[hidden] {
+  display: none !important;
+}
+
+.appliance-modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(15, 30, 50, 0.2);
+  text-align: center;
+  animation: applianceModalIn 0.22s ease;
+}
+
+.appliance-modal-close {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  color: var(--color-slate);
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.appliance-modal-close:hover {
+  background: #f3f4f6;
+  color: var(--color-navy);
+}
+
+.appliance-modal-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 18px;
+  background: #fff0ed;
+  border: 1px solid #f9d5cf;
+  border-radius: 50%;
+  color: #dc4c4c;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.appliance-modal h3 {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.appliance-modal > p {
+  margin: 11px 0 24px;
+  color: var(--color-slate);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.appliance-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.appliance-modal-actions button {
+  min-height: 41px;
+  padding: 0 17px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.appliance-modal-cancel {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-slate);
+}
+
+.appliance-modal-cancel:hover {
+  background: #f5f6f8;
+}
+
+.appliance-modal-confirm {
+  background: #dc4c4c;
+  border: 1px solid #dc4c4c;
+  color: #fff;
+}
+
+.appliance-modal-confirm:hover {
+  background: #c83d3d;
+  transform: translateY(-1px);
+}
+
+@keyframes applianceFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes applianceModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .appliance-modal {
+    padding: 27px 20px;
+  }
+
+  .appliance-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .appliance-modal-actions button {
+    width: 100%;
+  }
+}
+
+/* EDIT APPLIANCE MODAL */
+
+.appliance-edit-modal {
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.appliance-edit-modal > h3,
+.appliance-edit-modal > p {
+  text-align: center;
+}
+
+.appliance-edit-icon {
+  background: var(--color-primary-soft);
+  border-color: #f5dfca;
+  color: var(--color-primary);
+}
+
+.appliance-edit-modal .appliance-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.appliance-edit-modal .appliance-modal-actions {
+  margin-top: 24px;
+}
+
+.appliance-edit-button {
+  margin-right: 6px;
+  padding: 6px 10px;
+  background: #fff8f1;
+  border: 1px solid #f5dfca;
+  border-radius: 6px;
+  color: var(--color-primary-dark);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.appliance-edit-button:hover {
+  background: #ffead8;
+}
+
+.appliance-update-button {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+  .appliance-edit-modal .appliance-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
