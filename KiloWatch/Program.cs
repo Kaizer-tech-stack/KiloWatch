@@ -22,7 +22,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Outage}/{action=Index}/{id?}")
+    pattern: "{controller=Solar}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 

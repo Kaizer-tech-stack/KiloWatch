@@ -50,6 +50,8 @@
       href="~/css/outage.css"
       asp-append-version="true" />
 
+      <link rel="stylesheet" href="~/css/solar.css" asp-append-version="true" />
+
     <link rel="stylesheet"
           href="~/KiloWatch.styles.css"
           asp-append-version="true" />
@@ -125,10 +127,12 @@
     <span>Outage Advisories</span>
 </a>
 
-    <a href="#" class="kt-nav-link">
-        <span class="kt-nav-icon">☀</span>
-        <span>Solar & Net Metering</span>
-    </a>
+    <a asp-controller="Solar"
+   asp-action="Index"
+   class="kt-nav-link @(currentController == "Solar" ? "active" : "")">
+    <span class="kt-nav-icon">☀</span>
+    <span>Solar & Net Metering</span>
+</a>
 
 </nav>
 
