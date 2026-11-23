@@ -1,0 +1,885 @@
+/* 
+   KILOWATCH — REAL-TIME USAGE
+ */
+
+.usage-page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.usage-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.usage-eyebrow {
+  margin: 0 0 7px;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.usage-heading h1 {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.usage-subtitle {
+  margin: 7px 0 0;
+  color: var(--color-slate);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.usage-live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  background: var(--color-surface);
+  color: var(--color-slate);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.usage-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-warning);
+}
+
+.usage-demo-notice {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 16px;
+  border: 1px solid #f4dfc8;
+  border-radius: var(--radius-md);
+  background: #fff9f2;
+}
+
+.usage-notice-icon {
+  color: var(--color-primary);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.usage-demo-notice p {
+  margin: 0;
+  color: #806044;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.usage-demo-notice strong {
+  color: #67451f;
+}
+
+/* Statistics */
+
+.usage-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.usage-stat-card {
+  min-width: 0;
+  padding: 19px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.usage-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.usage-stat-label {
+  color: var(--color-slate);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.usage-stat-icon,
+.usage-insight-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.usage-icon-orange {
+  background: #fff0e5;
+  color: #e87522;
+}
+
+.usage-icon-blue {
+  background: #eaf2ff;
+  color: #477ac5;
+}
+
+.usage-icon-purple {
+  background: #f1edff;
+  color: #8064c8;
+}
+
+.usage-icon-green {
+  background: #e8f5ef;
+  color: #16845b;
+}
+
+.usage-stat-value {
+  margin-top: 15px;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.usage-stat-value span {
+  color: var(--color-slate);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.usage-stat-note {
+  margin: 5px 0 0;
+  color: var(--color-muted);
+  font-size: 11px;
+}
+
+/* Main content grid */
+
+.usage-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.9fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.usage-chart-card,
+.usage-insights-card,
+.usage-appliances-card {
+  min-width: 0;
+}
+
+.usage-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.usage-card-title {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.usage-card-subtitle {
+  margin: 5px 0 0;
+  color: var(--color-slate);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.usage-chart-unit {
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--color-background);
+  color: var(--color-slate);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.usage-chart-summary {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 23px;
+}
+
+.usage-summary-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.usage-chart-summary strong {
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.usage-summary-period {
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+/* Bar chart */
+
+.usage-chart {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+  height: 225px;
+  margin-top: 19px;
+}
+
+.usage-chart-y-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 0 25px;
+  color: var(--color-muted);
+  font-size: 10px;
+  text-align: right;
+}
+
+.usage-chart-plot {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+}
+
+.usage-chart-gridlines {
+  position: absolute;
+  inset: 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.usage-chart-gridlines span {
+  display: block;
+  width: 100%;
+  border-top: 1px dashed var(--color-border);
+}
+
+.usage-bars {
+  position: absolute;
+  inset: 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 8px;
+  align-items: end;
+}
+
+.usage-bar-column {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.usage-bar-value {
+  color: var(--color-slate);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.usage-bar {
+  width: min(100%, 25px);
+  min-height: 5px;
+  border-radius: 5px 5px 2px 2px;
+  background: #f6b47d;
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.usage-bar-column:hover .usage-bar {
+  background: var(--color-primary);
+}
+
+.usage-bar-peak {
+  background: var(--color-primary);
+}
+
+.usage-bar-label {
+  color: var(--color-muted);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.usage-chart-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+  color: var(--color-slate);
+  font-size: 10px;
+}
+
+.usage-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+  background: #f6b47d;
+}
+
+.usage-legend-peak {
+  margin-left: 10px;
+  background: var(--color-primary);
+}
+
+/* Insights */
+
+.usage-insights-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.usage-insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.usage-insight-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.usage-insight-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.usage-insight-item strong {
+  display: block;
+  margin: 1px 0 5px;
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.usage-insight-item p {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Appliance breakdown */
+
+.usage-total-badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.usage-appliance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  margin-top: 23px;
+}
+
+.usage-appliance-row {
+  display: grid;
+  grid-template-columns: minmax(170px, 1.1fr) 90px minmax(100px, 1.5fr);
+  align-items: center;
+  gap: 18px;
+}
+
+.usage-appliance-info {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.usage-appliance-info strong,
+.usage-appliance-info span {
+  display: block;
+}
+
+.usage-appliance-info strong {
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.usage-appliance-info div > span {
+  margin-top: 4px;
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.usage-appliance-consumption {
+  text-align: right;
+}
+
+.usage-appliance-consumption strong {
+  display: block;
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.usage-appliance-consumption span {
+  display: block;
+  margin-top: 3px;
+  color: var(--color-slate);
+  font-size: 10px;
+}
+
+.usage-progress-track {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eef0f3;
+}
+
+.usage-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.usage-progress-orange {
+  background: #f29a52;
+}
+
+.usage-progress-blue {
+  background: #6698dc;
+}
+
+.usage-progress-purple {
+  background: #9a83d8;
+}
+
+.usage-progress-green {
+  background: #5aaf89;
+}
+
+.usage-progress-gray {
+  background: #aab3bf;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1100px) {
+  .usage-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .usage-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .usage-appliance-row {
+    grid-template-columns: minmax(170px, 1.1fr) 90px minmax(100px, 1.5fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .usage-page {
+    gap: 17px;
+  }
+
+  .usage-heading {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .usage-heading h1 {
+    font-size: 23px;
+  }
+
+  .usage-chart-card,
+  .usage-insights-card,
+  .usage-appliances-card {
+    padding: 18px;
+  }
+
+  .usage-appliance-row {
+    grid-template-columns: minmax(0, 1fr) 75px;
+    gap: 10px;
+  }
+
+  .usage-progress-track {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .usage-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .usage-stat-card {
+    padding: 14px;
+  }
+
+  .usage-stat-label {
+    font-size: 10px;
+  }
+
+  .usage-stat-value {
+    font-size: 22px;
+  }
+
+  .usage-stat-value span {
+    font-size: 11px;
+  }
+
+  .usage-stat-note {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .usage-chart-card,
+  .usage-insights-card,
+  .usage-appliances-card {
+    padding: 15px;
+  }
+
+  .usage-chart {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .usage-bars {
+    gap: 4px;
+  }
+
+  .usage-bar-label {
+    font-size: 8px;
+  }
+
+  .usage-bar-value {
+    font-size: 8px;
+  }
+
+  .usage-total-badge {
+    font-size: 9px;
+  }
+
+  .usage-appliance-info strong {
+    font-size: 11px;
+  }
+
+  .usage-appliance-info div > span {
+    font-size: 9px;
+  }
+}
+
+/* =========================================
+   KILOWATCH — APPLIANCE CONSUMPTION
+========================================= */
+
+.kw-appliance-card {
+  min-width: 0;
+}
+
+.kw-appliance-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.kw-appliance-title {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.kw-appliance-subtitle {
+  margin: 5px 0 0;
+  color: var(--color-slate);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.kw-appliance-badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.kw-appliance-total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-background);
+}
+
+.kw-total-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.kw-appliance-total strong {
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.kw-appliance-total strong small {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.kw-total-caption {
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.kw-appliance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 12px;
+}
+
+.kw-appliance-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 85px;
+  align-items: center;
+  column-gap: 15px;
+  row-gap: 11px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.kw-appliance-item:last-child {
+  border-bottom: none;
+}
+
+.kw-appliance-details {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+/* Larger Appliance Icons */
+
+.kw-appliance-symbol {
+  display: grid;
+  place-items: center;
+
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  border-radius: 13px;
+}
+
+.kw-appliance-symbol svg {
+  display: block;
+  width: 36px;
+  height: 36px;
+
+  padding: 0;
+  margin: 0;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.kw-symbol-orange {
+  background: #fff0e5;
+  color: #e87522;
+}
+
+.kw-symbol-blue {
+  background: #eaf2ff;
+  color: #477ac5;
+}
+
+.kw-symbol-purple {
+  background: #f1edff;
+  color: #8064c8;
+}
+
+.kw-symbol-green {
+  background: #e8f5ef;
+  color: #16845b;
+}
+
+.kw-symbol-gray {
+  background: #eef0f3;
+  color: #687588;
+}
+
+.kw-appliance-name {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.kw-appliance-name strong {
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.kw-appliance-name span {
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.kw-appliance-value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.kw-appliance-value strong {
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.kw-appliance-value span {
+  color: var(--color-slate);
+  font-size: 10px;
+}
+
+.kw-appliance-progress {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eef0f3;
+}
+
+.kw-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.kw-fill-orange {
+  background: #f29a52;
+}
+
+.kw-fill-blue {
+  background: #6698dc;
+}
+
+.kw-fill-purple {
+  background: #9a83d8;
+}
+
+.kw-fill-green {
+  background: #5aaf89;
+}
+
+.kw-fill-gray {
+  background: #aab3bf;
+}
+
+.kw-appliance-footer {
+  margin-top: 12px;
+  padding-top: 13px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .kw-appliance-total {
+    padding: 13px;
+  }
+
+  .kw-appliance-total strong {
+    font-size: 22px;
+  }
+
+  .kw-appliance-item {
+    column-gap: 8px;
+  }
+
+  .kw-appliance-details {
+    gap: 9px;
+  }
+
+  .kw-appliance-symbol {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+  }
+
+  .kw-appliance-symbol svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .kw-appliance-name strong {
+    font-size: 11px;
+  }
+}

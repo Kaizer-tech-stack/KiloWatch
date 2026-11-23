@@ -32,6 +32,8 @@
     <link rel="stylesheet"
       href="~/css/dashboard.css"
       asp-append-version="true" />
+    
+    <link rel="stylesheet" href="~/css/usage.css" asp-append-version="true" />
 
     <link rel="stylesheet"
           href="~/KiloWatch.styles.css"
@@ -69,10 +71,12 @@
                         <span>Overview</span>
                     </a>
 
-                    <a href="#" class="kt-nav-link">
-                        <span class="kt-nav-icon">ϟ</span>
-                        <span>Real-Time Usage</span>
-                    </a>
+                    <a asp-controller="Usage"
+   asp-action="Index"
+   class="kt-nav-link">
+    <span class="kt-nav-icon">ϟ</span>
+    <span>Real-Time Usage</span>
+</a>
 
                     <a href="#" class="kt-nav-link">
                         <span class="kt-nav-icon">▤</span>
