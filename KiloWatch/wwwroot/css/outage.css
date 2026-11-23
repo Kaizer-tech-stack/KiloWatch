@@ -1,0 +1,916 @@
+/* 
+   KILOWATCH - OUTAGE ADVISORIES
+ */
+
+.outage-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  color: var(--color-navy);
+}
+
+/* PAGE HEADER */
+
+.outage-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.outage-eyebrow {
+  margin: 0 0 7px;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.outage-heading h1 {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.outage-subtitle {
+  max-width: 650px;
+  margin: 7px 0 0;
+  color: var(--color-slate);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.outage-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.outage-header-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 15px;
+  border-radius: 7px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.outage-refresh-button {
+  border: 1px solid var(--color-border);
+  background: white;
+  color: var(--color-navy);
+}
+
+.outage-refresh-button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.outage-refresh-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.outage-report-button {
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+}
+
+.outage-report-button:hover {
+  border-color: var(--color-primary-hover);
+  background: var(--color-primary-hover);
+}
+
+.outage-header-actions button span:first-child {
+  font-size: 16px;
+}
+
+/* DEMO NOTICE */
+
+.outage-demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 13px 15px;
+  border: 1px solid #f2dfc7;
+  border-radius: var(--radius-md);
+  background: #fffaf3;
+}
+
+.outage-notice-icon {
+  color: #bd7a24;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.outage-demo-notice p {
+  margin: 0;
+  color: #81633c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.outage-demo-notice strong {
+  color: #79511f;
+}
+
+/* CURRENT STATUS */
+
+.outage-status-card {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow-card);
+}
+
+.outage-status-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 21px 23px;
+}
+
+.outage-status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.outage-status-information {
+  flex: 1;
+  min-width: 0;
+}
+
+.outage-status-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.outage-status-information h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.outage-status-information > p {
+  margin: 5px 0;
+  color: var(--color-slate);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.outage-status-information > small {
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.outage-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.outage-status-badge > span,
+.outage-telemetry-status > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.outage-telemetry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  min-width: 145px;
+  padding-left: 20px;
+  border-left: 1px solid var(--color-border);
+}
+
+.outage-telemetry-label {
+  color: var(--color-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.outage-telemetry strong {
+  color: var(--color-navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.outage-telemetry-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-success);
+  font-size: 10px;
+}
+
+.outage-status-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 11px 23px;
+  border-top: 1px solid var(--color-border);
+  background: #fbfcfd;
+  color: var(--color-slate);
+  font-size: 10px;
+}
+
+.outage-status-footer strong {
+  color: var(--color-navy);
+}
+
+/* OVERVIEW */
+
+.outage-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.outage-overview-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow-card);
+}
+
+.outage-overview-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.outage-icon-green {
+  background: #e8f5ef;
+  color: #16845b;
+}
+
+.outage-icon-orange {
+  background: #fff1e7;
+  color: #e97922;
+}
+
+.outage-icon-blue {
+  background: #edf3fb;
+  color: #527ba9;
+}
+
+.outage-overview-card > div:last-child {
+  min-width: 0;
+}
+
+.outage-overview-card span {
+  display: block;
+  color: var(--color-slate);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.outage-overview-card h3 {
+  margin: 4px 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.outage-overview-card small {
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+/* SECTION CARDS */
+
+.outage-section-card {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow-card);
+}
+
+.outage-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 21px;
+}
+
+.outage-section-heading h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.outage-section-heading p {
+  margin: 5px 0 0;
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.outage-section-tag {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* MAINTENANCE */
+
+.outage-maintenance-list {
+  padding: 0 21px;
+}
+
+.outage-maintenance-item {
+  display: grid;
+  grid-template-columns: 1.05fr 1.1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 17px 0;
+  border-top: 1px solid #f0f1f3;
+}
+
+.outage-maintenance-date,
+.outage-maintenance-details,
+.outage-maintenance-description {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.outage-maintenance-date strong,
+.outage-maintenance-details strong {
+  color: var(--color-navy);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.outage-maintenance-date span,
+.outage-maintenance-details span,
+.outage-maintenance-description span {
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.outage-maintenance-date small,
+.outage-maintenance-description small {
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.outage-maintenance-description small {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+.outage-maintenance-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 21px;
+  border-top: 1px solid #f0f1f3;
+  background: #fbfcfd;
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+/* HISTORY */
+
+.outage-history-heading {
+  padding-bottom: 15px;
+}
+
+.outage-history-period {
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+.outage-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 21px 16px;
+}
+
+.outage-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  max-width: 350px;
+  height: 37px;
+  padding: 0 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  background: white;
+  color: var(--color-muted);
+}
+
+.outage-search:focus-within {
+  border-color: var(--color-primary);
+}
+
+.outage-search span {
+  font-size: 19px;
+}
+
+.outage-search input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+
+.outage-toolbar select {
+  min-width: 130px;
+  height: 37px;
+  padding: 0 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  background: white;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 11px;
+  outline: none;
+}
+
+.outage-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.outage-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.outage-table thead {
+  background: #f5f7fa;
+}
+
+.outage-table th {
+  padding: 12px 15px;
+  color: var(--color-slate);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.outage-table td {
+  padding: 13px 15px;
+  border-bottom: 1px solid #f0f1f3;
+  color: var(--color-navy);
+  font-size: 10px;
+}
+
+.outage-table tbody tr:hover {
+  background: #fcfcfd;
+}
+
+.outage-area-name,
+.outage-area-note {
+  display: block;
+}
+
+.outage-area-name {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.outage-area-note {
+  margin-top: 4px;
+  color: var(--color-muted);
+  font-size: 9px;
+}
+
+.outage-type-badge,
+.outage-history-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.outage-type-scheduled {
+  background: #edf3fb;
+  color: #527ba9;
+}
+
+.outage-type-unscheduled {
+  background: #fff1e7;
+  color: #c66a21;
+}
+
+.outage-type-reported {
+  background: #f0edfb;
+  color: #7053a6;
+}
+
+.outage-history-status {
+  background: #e8f5ef;
+  color: #16845b;
+}
+
+.outage-empty-state {
+  padding: 35px 15px;
+  text-align: center;
+}
+
+.outage-empty-state > span {
+  color: var(--color-muted);
+  font-size: 25px;
+}
+
+.outage-empty-state h3 {
+  margin: 8px 0 5px;
+  color: var(--color-navy);
+  font-size: 13px;
+}
+
+.outage-empty-state p {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: 11px;
+}
+
+.outage-table-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 21px;
+  border-top: 1px solid #f0f1f3;
+  color: var(--color-muted);
+  font-size: 10px;
+}
+
+/* SAFETY CARD */
+
+.outage-safety-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 17px 19px;
+  border: 1px solid #f2dfc7;
+  border-radius: var(--radius-lg);
+  background: #fffaf3;
+}
+
+.outage-safety-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: #fff0d8;
+  color: #bb7926;
+  font-weight: 800;
+}
+
+.outage-safety-card h3 {
+  margin: 0 0 5px;
+  color: #79511f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.outage-safety-card p {
+  margin: 0;
+  color: #896f4f;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* REPORT MODAL */
+
+.outage-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(17, 30, 47, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.outage-modal-overlay[hidden] {
+  display: none !important;
+}
+
+.outage-modal {
+  position: relative;
+  width: 100%;
+  max-width: 570px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 27px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.outage-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: var(--color-slate);
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.outage-modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  margin-bottom: 15px;
+  border-radius: 11px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.outage-modal h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.outage-modal-description {
+  margin: 7px 0 20px;
+  color: var(--color-slate);
+  font-size: 12px;
+}
+
+.outage-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.outage-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.outage-form-full {
+  grid-column: 1 / -1;
+}
+
+.outage-form-field label {
+  color: var(--color-navy);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.outage-form-field input,
+.outage-form-field select,
+.outage-form-field textarea {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  outline: none;
+  background: white;
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+
+.outage-form-field input:focus,
+.outage-form-field select:focus,
+.outage-form-field textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.outage-form-field textarea {
+  resize: vertical;
+}
+
+.outage-form-note {
+  margin-top: 14px;
+  color: var(--color-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.outage-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 21px;
+}
+
+.outage-modal-actions button {
+  min-height: 39px;
+  padding: 0 15px;
+  border-radius: 7px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.outage-cancel-button {
+  border: 1px solid var(--color-border);
+  background: white;
+  color: var(--color-navy);
+}
+
+.outage-submit-button {
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+}
+
+.outage-submit-button:hover {
+  background: var(--color-primary-hover);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1050px) {
+  .outage-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .outage-maintenance-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .outage-maintenance-description {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .outage-page {
+    gap: 18px;
+  }
+
+  .outage-overview-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .outage-status-main {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .outage-telemetry {
+    width: 100%;
+    align-items: flex-start;
+    padding: 13px 0 0 60px;
+    border-top: 1px solid var(--color-border);
+    border-left: none;
+  }
+
+  .outage-status-footer {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .outage-table {
+    min-width: 760px;
+  }
+}
+
+@media (max-width: 576px) {
+  .outage-heading h1 {
+    font-size: 24px;
+  }
+
+  .outage-header-actions {
+    width: 100%;
+  }
+
+  .outage-header-actions button {
+    flex: 1;
+    padding: 0 9px;
+    font-size: 10px;
+  }
+
+  .outage-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .outage-maintenance-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .outage-maintenance-description {
+    grid-column: auto;
+  }
+
+  .outage-maintenance-footer,
+  .outage-table-footer {
+    flex-direction: column;
+  }
+
+  .outage-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .outage-search {
+    max-width: none;
+  }
+
+  .outage-toolbar select {
+    width: 100%;
+  }
+
+  .outage-section-heading {
+    align-items: flex-start;
+  }
+
+  .outage-modal {
+    padding: 22px 17px;
+  }
+
+  .outage-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .outage-form-full {
+    grid-column: auto;
+  }
+}

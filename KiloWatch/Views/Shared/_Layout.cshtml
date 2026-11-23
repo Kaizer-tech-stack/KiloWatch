@@ -47,6 +47,10 @@
     <link rel="stylesheet" href="~/css/appliance.css" asp-append-version="true" />
 
     <link rel="stylesheet"
+      href="~/css/outage.css"
+      asp-append-version="true" />
+
+    <link rel="stylesheet"
           href="~/KiloWatch.styles.css"
           asp-append-version="true" />
 </head>
@@ -113,10 +117,13 @@
 </a>
 
 
-    <a href="#" class="kt-nav-link">
-        <span class="kt-nav-icon">⚡</span>
-        <span>Outage Advisories</span>
-    </a>
+    <a asp-controller="Outage"
+   asp-action="Index"
+   class="kt-nav-link @(currentController == "Outage" ? "active" : "")">
+
+    <span class="kt-nav-icon">⚡</span>
+    <span>Outage Advisories</span>
+</a>
 
     <a href="#" class="kt-nav-link">
         <span class="kt-nav-icon">☀</span>

@@ -1,0 +1,696 @@
+
+@{
+    ViewData["Title"] = "Outage Advisories";
+}
+
+<section class="outage-page">
+
+    <!-- PAGE HEADER -->
+    <div class="outage-heading">
+        <div>
+            <p class="outage-eyebrow">ENERGY MANAGEMENT</p>
+            <h1>Outage Advisories</h1>
+            <p class="outage-subtitle">
+                Stay informed about power interruptions, scheduled maintenance,
+                and electricity service updates in your area.
+            </p>
+        </div>
+
+        <div class="outage-header-actions">
+            <button type="button" class="outage-refresh-button" id="refreshAdvisories">
+                <span>↻</span>
+                <span>Refresh Advisories</span>
+            </button>
+
+            <button type="button" class="outage-report-button" id="openReportModal">
+                <span>＋</span>
+                Report Outage
+            </button>
+        </div>
+    </div>
+
+    <!-- DEMO NOTICE -->
+    <div class="outage-demo-notice">
+        <span class="outage-notice-icon">ⓘ</span>
+        <p>
+            <strong>Demonstration data.</strong>
+            Outage information and maintenance schedules are sample records
+            for frontend development. They are not live utility-provider updates.
+        </p>
+    </div>
+
+    <!-- CURRENT OUTAGE STATUS -->
+    <section class="outage-status-card">
+
+        <div class="outage-status-main">
+            <div class="outage-status-icon">
+                <span>ϟ</span>
+            </div>
+
+            <div class="outage-status-information">
+                <div class="outage-status-title-row">
+                    <h2 id="outageStatusTitle">No Active Power Interruptions</h2>
+                    <span class="outage-status-badge" id="outageStatusBadge">
+                        <span></span> Normal
+                    </span>
+                </div>
+
+                <p id="outageStatusDescription">
+                    Your registered area is currently without any reported
+                    power interruption.
+                </p>
+
+                <small id="lastChecked">
+                    Last checked: November 23, 2026
+                </small>
+            </div>
+        </div>
+
+        <div class="outage-telemetry">
+            <span class="outage-telemetry-label">FEEDER TELEMETRY</span>
+            <strong>230.4 V · 60.0 Hz</strong>
+            <span class="outage-telemetry-status">
+                <span></span> Sample readings
+            </span>
+        </div>
+
+        <div class="outage-status-footer">
+            <span>
+                <strong>Registered Area:</strong>
+                Metro Manila Service Area
+            </span>
+
+            <span id="nextUpdate">
+                Sample monitoring information
+            </span>
+        </div>
+
+    </section>
+
+    <!-- OVERVIEW CARDS -->
+    <div class="outage-overview-grid">
+
+        <article class="outage-overview-card">
+            <div class="outage-overview-icon outage-icon-green">✓</div>
+            <div>
+                <span>Active Interruptions</span>
+                <h3 id="activeOutageCount">0</h3>
+                <small>No active sample reports</small>
+            </div>
+        </article>
+
+        <article class="outage-overview-card">
+            <div class="outage-overview-icon outage-icon-orange">◷</div>
+            <div>
+                <span>Scheduled Maintenance</span>
+                <h3 id="scheduledCount">2</h3>
+                <small>Upcoming sample schedules</small>
+            </div>
+        </article>
+
+        <article class="outage-overview-card">
+            <div class="outage-overview-icon outage-icon-blue">▤</div>
+            <div>
+                <span>Recent Incidents</span>
+                <h3 id="incidentCount">4</h3>
+                <small>Historical sample records</small>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- UPCOMING MAINTENANCE -->
+    <section class="outage-section-card">
+
+        <div class="outage-section-heading">
+            <div>
+                <h2>Upcoming Scheduled Maintenance</h2>
+                <p>
+                    Planned service interruptions and preventive maintenance activities.
+                </p>
+            </div>
+
+            <span class="outage-section-tag">Upcoming</span>
+        </div>
+
+        <div class="outage-maintenance-list" id="maintenanceList">
+
+            <!-- Rendered by JavaScript -->
+
+        </div>
+
+        <div class="outage-maintenance-footer">
+            <span>Schedules are illustrative and subject to change.</span>
+            <span>Always verify official utility announcements.</span>
+        </div>
+
+    </section>
+
+    <!-- RECENT OUTAGE HISTORY -->
+    <section class="outage-section-card outage-history-card">
+
+        <div class="outage-section-heading outage-history-heading">
+            <div>
+                <h2>Recent Outage History</h2>
+                <p>Review previously recorded power interruption incidents.</p>
+            </div>
+
+            <span class="outage-history-period">Sample historical records</span>
+        </div>
+
+        <!-- SEARCH AND FILTER -->
+        <div class="outage-toolbar">
+
+            <div class="outage-search">
+                <span>⌕</span>
+                <input type="search"
+                       id="outageSearch"
+                       placeholder="Search affected areas or notes..."
+                       aria-label="Search outage history">
+            </div>
+
+            <select id="outageTypeFilter" aria-label="Filter outage type">
+                <option value="All">All Types</option>
+                <option value="Unscheduled">Unscheduled</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Reported">Reported</option>
+            </select>
+
+        </div>
+
+        <!-- HISTORY TABLE -->
+        <div class="outage-table-wrapper">
+
+            <table class="outage-table">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>DURATION</th>
+                        <th>TYPE</th>
+                        <th>AFFECTED AREA / NOTE</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+
+                <tbody id="outageHistoryBody">
+                    <!-- Rendered by JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="outage-empty-state" id="outageEmptyState" hidden>
+                <span>⌕</span>
+                <h3>No outage records found</h3>
+                <p>Try changing your search or filter.</p>
+            </div>
+
+        </div>
+
+        <div class="outage-table-footer">
+            <span id="historyRecordCount">Showing 4 sample records</span>
+            <span>Information shown is for demonstration only.</span>
+        </div>
+
+    </section>
+
+    <!-- SAFETY REMINDERS -->
+    <section class="outage-safety-card">
+
+        <div class="outage-safety-icon">!</div>
+
+        <div>
+            <h3>Power Interruption Safety Reminders</h3>
+            <p>
+                Unplug sensitive electronics during an interruption.
+                Keep refrigerators closed to preserve food temperature.
+                Stay away from fallen power lines and report hazards to
+                your electricity provider.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- REPORT OUTAGE MODAL -->
+    <div class="outage-modal-overlay" id="reportOutageModal" hidden>
+
+        <div class="outage-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="reportModalTitle">
+
+            <button type="button"
+                    class="outage-modal-close"
+                    id="closeReportModal"
+                    aria-label="Close modal">
+                &times;
+            </button>
+
+            <div class="outage-modal-icon">ϟ</div>
+
+            <h2 id="reportModalTitle">Report a Power Outage</h2>
+
+            <p class="outage-modal-description">
+                Provide the details of the power interruption in your area.
+            </p>
+
+            <form id="reportOutageForm">
+
+                <div class="outage-form-grid">
+
+                    <div class="outage-form-field">
+                        <label for="reportArea">Affected Area</label>
+                        <input type="text"
+                               id="reportArea"
+                               placeholder="e.g. Barangay San Isidro"
+                               maxlength="100"
+                               required>
+                    </div>
+
+                    <div class="outage-form-field">
+                        <label for="reportDate">Date Observed</label>
+                        <input type="date"
+                               id="reportDate"
+                               required>
+                    </div>
+
+                    <div class="outage-form-field">
+                        <label for="reportTime">Time Observed</label>
+                        <input type="time"
+                               id="reportTime"
+                               required>
+                    </div>
+
+                    <div class="outage-form-field">
+                        <label for="reportType">Incident Type</label>
+                        <select id="reportType" required>
+                            <option value="Unscheduled">Unscheduled</option>
+                            <option value="Scheduled">Scheduled</option>
+                        </select>
+                    </div>
+
+                    <div class="outage-form-field outage-form-full">
+                        <label for="reportDescription">Description</label>
+                        <textarea id="reportDescription"
+                                  rows="3"
+                                  maxlength="300"
+                                  placeholder="Describe what happened..."
+                                  required></textarea>
+                    </div>
+
+                </div>
+
+                <div class="outage-form-note">
+                    This is a frontend demonstration. Reports are not sent to
+                    an electricity provider.
+                </div>
+
+                <div class="outage-modal-actions">
+
+                    <button type="button"
+                            class="outage-cancel-button"
+                            id="cancelReport">
+                        Cancel
+                    </button>
+
+                    <button type="submit"
+                            class="outage-submit-button">
+                        Submit Report
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+@section Scripts {
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // SAMPLE SCHEDULED MAINTENANCE
+    const maintenanceRecords = [
+        {
+            id: 1,
+            date: "November 28, 2026",
+            time: "9:00 AM – 2:00 PM",
+            duration: "5 hours",
+            area: "Main Avenue Feeder Line",
+            location: "Taguig Substation",
+            description: "Preventive transformer maintenance",
+            reference: "WO-2026-9042"
+        },
+        {
+            id: 2,
+            date: "December 2, 2026",
+            time: "11:00 PM – 4:00 AM",
+            duration: "5 hours",
+            area: "Barangay Central and nearby streets",
+            location: "Local Distribution Line",
+            description: "Line reconstruction and equipment replacement",
+            reference: "WO-2026-9058"
+        }
+    ];
+
+    // SAMPLE OUTAGE HISTORY
+    let outageRecords = [
+        {
+            id: 1,
+            date: "October 14, 2026",
+            duration: "42 mins",
+            type: "Unscheduled",
+            area: "Malabon Feeder 14",
+            note: "Localized tripped breaker",
+            status: "Restored"
+        },
+        {
+            id: 2,
+            date: "September 29, 2026",
+            duration: "3 hrs 15 mins",
+            type: "Scheduled",
+            area: "Brgy. Baritan and San Agustin",
+            note: "Preventive maintenance",
+            status: "Completed"
+        },
+        {
+            id: 3,
+            date: "August 11, 2026",
+            duration: "1 hr 10 mins",
+            type: "Unscheduled",
+            area: "Severe thunderstorm grid isolation",
+            note: "Weather-related interruption",
+            status: "Restored"
+        },
+        {
+            id: 4,
+            date: "July 5, 2026",
+            duration: "4 hrs",
+            type: "Scheduled",
+            area: "Substation equipment upgrade",
+            note: "Equipment upgrade",
+            status: "Completed"
+        }
+    ];
+
+    // ELEMENT REFERENCES
+    const maintenanceList = document.getElementById("maintenanceList");
+    const historyBody = document.getElementById("outageHistoryBody");
+    const searchInput = document.getElementById("outageSearch");
+    const typeFilter = document.getElementById("outageTypeFilter");
+    const emptyState = document.getElementById("outageEmptyState");
+
+    const reportModal = document.getElementById("reportOutageModal");
+    const reportForm = document.getElementById("reportOutageForm");
+
+    // FORMAT DATE
+    function formatDate(dateString) {
+        const date = new Date(dateString + "T00:00:00");
+
+        if (Number.isNaN(date.getTime())) {
+            return dateString;
+        }
+
+        return date.toLocaleDateString("en-PH", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        });
+    }
+
+    // RENDER MAINTENANCE
+    function renderMaintenance() {
+
+        maintenanceList.innerHTML = "";
+
+        maintenanceRecords.forEach(record => {
+
+            const item = document.createElement("article");
+            item.className = "outage-maintenance-item";
+
+            const date = document.createElement("div");
+            date.className = "outage-maintenance-date";
+
+            const dateStrong = document.createElement("strong");
+            dateStrong.textContent = record.date;
+
+            const time = document.createElement("span");
+            time.textContent = record.time;
+
+            const duration = document.createElement("small");
+            duration.textContent = "Duration: " + record.duration;
+
+            date.append(dateStrong, time, duration);
+
+            const details = document.createElement("div");
+            details.className = "outage-maintenance-details";
+
+            const area = document.createElement("strong");
+            area.textContent = record.area;
+
+            const location = document.createElement("span");
+            location.textContent = record.location;
+
+            details.append(area, location);
+
+            const description = document.createElement("div");
+            description.className = "outage-maintenance-description";
+
+            const descriptionText = document.createElement("span");
+            descriptionText.textContent = record.description;
+
+            const reference = document.createElement("small");
+            reference.textContent = "Work Order #" + record.reference;
+
+            description.append(descriptionText, reference);
+
+            item.append(date, details, description);
+            maintenanceList.appendChild(item);
+
+        });
+
+        document.getElementById("scheduledCount").textContent =
+            maintenanceRecords.length;
+
+    }
+
+    // RENDER OUTAGE HISTORY
+    function renderHistory() {
+
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const selectedType = typeFilter.value;
+
+        const filteredRecords = outageRecords.filter(record => {
+
+            const matchesSearch =
+                record.area.toLowerCase().includes(searchTerm) ||
+                record.note.toLowerCase().includes(searchTerm) ||
+                record.type.toLowerCase().includes(searchTerm);
+
+            const matchesType =
+                selectedType === "All" || record.type === selectedType;
+
+            return matchesSearch && matchesType;
+
+        });
+
+        historyBody.innerHTML = "";
+
+        filteredRecords.forEach(record => {
+
+            const row = document.createElement("tr");
+
+            const dateCell = document.createElement("td");
+            dateCell.textContent = record.date;
+
+            const durationCell = document.createElement("td");
+            durationCell.textContent = record.duration;
+
+            const typeCell = document.createElement("td");
+
+            const typeBadge = document.createElement("span");
+            typeBadge.className =
+                "outage-type-badge " +
+                (record.type === "Scheduled"
+                    ? "outage-type-scheduled"
+                    : record.type === "Reported"
+                        ? "outage-type-reported"
+                        : "outage-type-unscheduled");
+
+            typeBadge.textContent = record.type;
+            typeCell.appendChild(typeBadge);
+
+            const areaCell = document.createElement("td");
+
+            const areaStrong = document.createElement("strong");
+            areaStrong.className = "outage-area-name";
+            areaStrong.textContent = record.area;
+
+            const note = document.createElement("small");
+            note.className = "outage-area-note";
+            note.textContent = record.note;
+
+            areaCell.append(areaStrong, note);
+
+            const statusCell = document.createElement("td");
+
+            const statusBadge = document.createElement("span");
+            statusBadge.className = "outage-history-status";
+            statusBadge.textContent = record.status;
+
+            statusCell.appendChild(statusBadge);
+
+            row.append(
+                dateCell,
+                durationCell,
+                typeCell,
+                areaCell,
+                statusCell
+            );
+
+            historyBody.appendChild(row);
+
+        });
+
+        emptyState.hidden = filteredRecords.length !== 0;
+
+        document.getElementById("historyRecordCount").textContent =
+            "Showing " + filteredRecords.length +
+            " of " + outageRecords.length + " records";
+
+        document.getElementById("incidentCount").textContent =
+            outageRecords.length;
+
+    }
+
+    // UPDATE LAST CHECKED
+    function updateLastChecked() {
+
+        const now = new Date();
+
+        document.getElementById("lastChecked").textContent =
+            "Last checked: " + now.toLocaleString("en-PH", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit"
+            });
+
+    }
+
+    // REFRESH BUTTON
+    document.getElementById("refreshAdvisories")
+        .addEventListener("click", function () {
+
+            const button = this;
+            const originalText = button.innerHTML;
+
+            button.disabled = true;
+            button.innerHTML = "<span>↻</span> Refreshing...";
+
+            renderMaintenance();
+            renderHistory();
+            updateLastChecked();
+
+            setTimeout(function () {
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }, 500);
+
+        });
+
+    // SEARCH AND FILTER
+    searchInput.addEventListener("input", renderHistory);
+    typeFilter.addEventListener("change", renderHistory);
+
+    // OPEN REPORT MODAL
+    document.getElementById("openReportModal")
+        .addEventListener("click", function () {
+
+            reportModal.hidden = false;
+            document.getElementById("reportArea").focus();
+
+        });
+
+    // CLOSE REPORT MODAL
+    function closeReportModal() {
+
+        reportModal.hidden = true;
+        reportForm.reset();
+
+    }
+
+    document.getElementById("closeReportModal")
+        .addEventListener("click", closeReportModal);
+
+    document.getElementById("cancelReport")
+        .addEventListener("click", closeReportModal);
+
+    reportModal.addEventListener("click", function (event) {
+
+        if (event.target === reportModal) {
+            closeReportModal();
+        }
+
+    });
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape" && !reportModal.hidden) {
+            closeReportModal();
+        }
+
+    });
+
+    // SUBMIT OUTAGE REPORT
+    reportForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const area = document.getElementById("reportArea").value.trim();
+        const date = document.getElementById("reportDate").value;
+        const time = document.getElementById("reportTime").value;
+        const type = document.getElementById("reportType").value;
+        const description = document.getElementById("reportDescription").value.trim();
+
+        if (!area || !date || !time || !description) {
+            alert("Please complete all required fields.");
+            return;
+        }
+
+        outageRecords.unshift({
+            id: Date.now(),
+            date: formatDate(date) + " · " + time,
+            duration: "Pending",
+            type: "Reported",
+            area: area,
+            note: description,
+            status: "Pending Review"
+        });
+
+        closeReportModal();
+
+        // RESET FILTERS SO THE NEW REPORT IS VISIBLE
+        searchInput.value = "";
+        typeFilter.value = "All";
+
+        renderHistory();
+
+        alert(
+            "Your sample outage report has been added to the demonstration history."
+        );
+
+    });
+
+    // INITIAL RENDER
+    renderMaintenance();
+    renderHistory();
+    updateLastChecked();
+
+});
+</script>
+
+}
